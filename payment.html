@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Payment Screen</title>
+		<link rel="stylesheet" href="payment_style.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+	</head>
+
+	<body>
+		<div id="navbar">
+			<img src="LogoImage.png" alt="SalonSpa OS Logo Image" title="SalonSpa OS Logo"/>
+			<div id="UserProfile"><img src="UserIcon.png" alt="UserIconImage" title="UserIcon"/>
+			<p><b>Admin 01</b></p>
+			<img src="LogoutIcon.png" alt="Logout Icon Image" title="Logout Icon"/></div>
+		</div>
+
+		<section class="ParentSection">
+
+			<div id="sidemenu">
+				<ul>
+					<li><a href="dashboard.html"><i class="fas fa-tachometer-alt"></i>My Dashboard</a></li>
+            				<li><a href="booking.html" id="sidemenu.active"><i class="fas fa-bookmark"></i> My Bookings</a></li>
+            				<li><a href="payment.html"><i class="fa fa-usd"></i>My Payments</a></li>
+	    				<li><a href="booking_form.html"><i class="fas fa-calendar-plus"></i>+ New Appointment</a></li>
+            				<li><a href="payment_form.html"><i class="fa fa-credit-card-alt"></i>+ New Payment</a></li>
+            				<li><a href="landing_page.html"><i class="fa fa-internet-explorer"></i> Website</a></li>
+				</ul>
+
+				<div class="logout-item">
+					<a href="#"><i class="fas fa-sign-out-alt"></i> Log Out</a></div>
+
+			</div>
+		
+			<div id="MainScreen">
+
+				<div id="MainScreen_header">
+					<h1>Payments</h1>
+					<button type="submit" onclick="window.location.href='payment_form.html';">+ New Payment</button>
+				</div>
+			
+				<div id="MainScreen_details">
+					<h4>All</h4>
+					<h4>Pending</h4>
+					<h4>Payments Received</h4>
+					<p>5 in total</p>
+				</div>
+		
+				<div id="MainScreen_table">
+					<table border="1">
+					<thead>
+						<tr>
+							<th><input type="checkbox"></th>
+							<th>CLIENT NAME</th>
+							<th> </th>
+							<th>SERVICE</th>
+							<th>($) STATUS</th>
+							<th>CHARGES</th>
+							<th>QTY.</th>
+							<th>CREATE DATE</th>
+							<th>NOTES</th>
+						</tr>
+					</thead>
+
+					<tbody>
+						<tr>
+							<td><input type="checkbox"></td>
+							<td>Mrs. Sana</td>
+							<td><span class="badge">SALON</td>
+							<td>Hair Cut</td>
+							<td>Received</td>
+							<td>$30</td>
+							<td>1</td>
+							<td>Feb 15, 2022</td>
+							<td>Full length</td>
+						</tr>
+
+						<tr>
+							<td><input type="checkbox"></td>
+							<td>Benazir</td>
+							<td><span class="badge">GYM</td>
+							<td>Gym Subscription</td>
+							<td>Received</td>
+							<td>$150</td>
+							<td>1</td>
+							<td>Feb 15, 2022</td>
+							<td>Subscription</td>
+						</tr>
+
+						<tr>
+							<td><input type="checkbox"></td>
+							<td>Alishba</td>
+							<td><span class="badge">SALON</td>
+							<td>Party Makeup</td>
+							<td>Pending</td>
+							<td>$300</td>
+							<td>2</td>
+							<td>Feb 15, 2022</td>
+							<td>Full length</td>
+						</tr>
+
+						<tr>
+							<td><input type="checkbox"></td>
+							<td>Muneeba</td>
+							<td><span class="badge">SPA</td>
+							<td>Facial Treatment</td>
+							<td>Pending</td>
+							<td>$100</td>
+							<td>1</td>
+							<td>Mar 20, 2022</td>
+							<td>Pre-booking</td>
+						</tr>
+
+						<tr>
+							<td><input type="checkbox"></td>
+							<td>Bakhtawar</td>
+							<td><span class="badge">SPA</td>
+							<td>Sauna Therapy</td>
+							<td>Pending</td>
+							<td>$500</td>
+							<td>1</td>
+							<td>Mar 21, 2022</td>
+							<td>Quarterly Sub..</td>
+						</tr>
+					</tbody>
+				</table>
+				</div>
+			</div>	
+	
+		</section>
+	
+	</body>
+
+</html>

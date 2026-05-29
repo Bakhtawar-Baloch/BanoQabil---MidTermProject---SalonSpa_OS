@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Book Appointment Form</title>
+		<link rel="stylesheet" href="booking_form.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	</head>
+
+	<body>
+
+	<h2>Book New Appointment</h2>
+
+	<form action="booking.html">
+	
+	<div id="InputDetails">
+
+	<h3>Client Details</h3>
+
+	<label for="Cname">Client Name: </label>
+	<input id="Cname" input type="text" placeholder="Enter Client's Name" required><br>
+
+	<label for="ServiceProvider">Service Provider Name: </label>
+	<input id="ServiceProvider" input type="text" placeholder="Name of the Service Provider / Specialist" required><br>
+
+	<h3>Services Requested</h3>
+
+	<input type="checkbox" id="SpaServices" value="Sauna Therapy">
+	<label for="SpaServices"> Sauna Therapy </label>
+	<input id="SpaServices" input type="number" placeholder="Enter Quantity"><br>
+
+	<input type="checkbox" id="SpaServices" value="Red Light Therapy">
+	<label for="SpaServices"> Red Light Therapy </label>
+	<input id="SpaServices" input type="number" placeholder="Enter Quantity"><br>
+
+	<input type="checkbox" id="SalonServices" value="Haircut">
+	<label for="SalonServices"> Haircut </label>
+	<input id="SalonServices" input type="number" placeholder="Enter Quantity"><br>
+	
+	<input type="checkbox" id="SalonServices" value="Facial Treatment">
+	<label for="SalonServices"> Facial Treatment </label>
+	<input id="SalonServices" input type="number" placeholder="Enter Quantity"><br>
+
+	<input type="checkbox" id="GymServices" value="Gym Subscription - Quarterly">
+	<label for="GymServices"> Gym Subscription - Quarterly </label>
+	<input id="GymServices" input type="number" placeholder="Enter Quantity"><br>
+
+	<input type="checkbox" id="GymServices" value="Aerobics Subscription - Quarterly">
+	<label for="GymServices"> Aerobics Subscription - Quarterly </label>
+	<input id="GymServices" input type="number" placeholder="Enter Quantity"><br>
+
+	<h3>Payment Status</h3>
+	
+	<input type="radio" id="Status" value="Received">
+	<label for="Status"> Received </label><br>
+
+	<input type="radio" id="Status" value="Pending">
+	<label for="Status"> Pending </label><br>
+
+	<h3>Appointment Status</h3>
+
+	<input type="radio" id="Status" value="Upcoming">
+	<label for="Status"> Upcoming </label><br>	
+
+	<input type="radio" id="Status" value="Completed">
+	<label for="Status"> Completed </label><br>
+
+	<input type="radio" id="Status" value="Cancelled">
+	<label for="Status"> Cancelled </label><br>
+
+	<h3>Date</h3>
+	
+	<label for="CreateDate">Create Date:</label>
+	<input id="CreateDate" input type="date" placeholder="05/29/2026" required><br>
+	
+	<label for="BookingDate">Appointment Date:</label>
+	<input id="BookingDate" input type="date" placeholder="05/29/2026" required><br>
+
+
+	<h3>Additional Notes</h3>
+
+	<label for="Notes">Notes: </label>
+	<input id="Notes" input type="text" placeholder="Comments/Notes" optional><br>
+
+	</div>
+
+	<div class="Calculator">
+		<h3>Total Charges</h3>
+	
+		<label for="Price">Price ($):</label>
+        	<input type="number" id="Price" placeholder="0.00" min="0" oninput="CalculateTotal()"><br>
+	
+		<label for="Quantity">Quantity:</label>
+        	<input type="number" id="Quantity" placeholder="0" min="0" oninput="CalculateTotal()"><br>
+	
+		<div id="Result">Total Charges: $<span id="Total">0.00</span></div>
+	</div>
+
+	<br>
+
+	<input type="submit" id="SubmitButton" value="Submit Form">
+
+	</form>
+
+
+
+	
+	<script>
+    		function CalculateTotal() {
+       			// Get input values
+        		const Price = parseFloat(document.getElementById('Price').value) || 0;
+        		const Quantity = parseInt(document.getElementById('Quantity').value) || 0;
+
+        		// Calculate Total
+        		const Total = Price * Quantity;
+
+        		// Update the HTML with the formatted total
+        		document.getElementById('Total').textContent = Total.toFixed(2);
+    		}
+	
+	</script>
+
+
+	</body>
+
+</html>
