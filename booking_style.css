@@ -1,0 +1,181 @@
+body {
+	background-image: url("RoseGold-BackgroundImage.jpg");
+	font-family: 'Poppins', sans-serif;
+    	color: #2c2c2c; /* Deep Charcoal for readability */
+	}
+
+#navbar {
+	background-color: #ffffff;
+	margin: 30px;
+	padding: 20px;
+	border-radius: 24px;
+	}
+
+#navbar img {
+	width: 30px;
+	height: 30px;
+	}
+
+
+#navbar {
+	display: flex;
+	justify-content: space-between;
+	}
+
+#navbar #UserProfile {
+	display: flex;
+	justify-items: flex-end;
+	}
+
+#navbar #UserProfile p {
+	font-size: 12px;
+	}
+
+#navbar #UserProfile {
+	display: flex;
+	gap: 15px;
+	}
+
+.ParentSection {
+	display: flex;
+	gap: 10px;
+	}
+
+ul {
+	list-style-type: none;
+	padding: 0px;
+	margin: 0px;
+	}
+
+#sidemenu {
+	background-color: #ffffff;
+	width: 15%;
+	height: 100dvh;
+	font-weight: bold;
+	font-size: 15px;
+	padding: 20px;
+	margin: 30px;
+	border-radius: 24px;
+	}
+
+#sidemenu ul {
+  	display: flex;
+	flex-direction: column;
+	gap: 50px;
+	}
+
+#sidemenu a {
+	color: #b76e79;
+	text-decoration: none;
+	}
+
+#sidemenu a:hover {
+	background-color: #FAD1D9;
+    	color: #b76e79;
+	}
+
+#sidemenu.active {
+    background: #f9eff0;
+    color: #b76e79;
+    font-weight: 600;
+    border-left: 3px solid #b76e79;
+}
+
+#sidemenu i {
+	color: #b76e79;
+	width: 24px;
+    	font-size: 1.2rem;
+	}
+
+.logout-item {
+    margin-top: 2rem;
+    border-top: 1px solid #f4e0e2;
+    padding-top: 1.2rem;
+}
+
+#MainScreen div {
+	display: flex;
+	justify-content: space-between;
+	}
+
+#MainScreen {
+	background-color: #FFFFFF;
+	padding: 20px;
+	margin: 30px;
+	width: 97%;
+	border-radius: 24px;
+	}
+
+
+#MainScreen_header button {
+	color: #ffffff;
+	background-color: #2f3542;
+	height: 30px;
+	}
+
+#MainScreen_header button:hover {
+	color: #4a4a4a;
+	background-color: #FAD1D9;
+	}
+
+
+#MainScreen_details {
+	padding: 8px;
+	box-sizing: border-box;
+	border: 1px solid #333333;
+	}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  border: 1px;
+  border-color: #333333;
+}
+
+th {
+  font-size: 12px;
+  font-weight: 600;
+  color: #000000;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 16px 24px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+td {
+  font-size: 14px;
+  color: #4a4a4a;
+  padding: 18px 24px;
+  border-bottom: 1px solid #f0f0f0;
+  vertical-align: middle;
+}
+
+tbody tr:hover {
+  background-color: #FAD1D9;
+}
+
+input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 12px;
+  text-align: center;
+  width: 40px;
+  height: 15px;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #ffffff;
+  background-color: #2f3542;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+

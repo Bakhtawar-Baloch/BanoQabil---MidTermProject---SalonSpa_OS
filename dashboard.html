@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Glow & Fit | Client Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+<div class="dashboard-wrapper">
+    <!-- SIDEBAR : Navigation Menu -->
+    <aside class="sidebar">
+        <div class="sidebar-logo">Glow<span>&</span>Fit</div>
+        <ul class="nav-menu">
+            <li><a href="dashboard.html" class="nav-item active"><i class="fas fa-tachometer-alt"></i> Dashboard Home</a></li>
+            <li><a href="booking.html" class="nav-item"><i class="fas fa-bookmark"></i> My Bookings</a></li>
+            <li><a href="payment.html" class="nav-item"><i class="fa fa-usd"></i>My Payments</a></li>
+	    <li><a href="booking_form.html" class="nav-item"><i class="fas fa-calendar-plus"></i>+ New Appointment</a></li>
+            <li><a href="payment_form.html" class="nav-item"><i class="fa fa-credit-card-alt"></i>+ New Payment</a></li>
+            <li><a href="landing_page.html" class="nav-item"><i class="fa fa-internet-explorer"></i> Website</a></li>
+        </ul>
+        <div class="logout-item">
+            <a href="#" class="nav-item"><i class="fas fa-sign-out-alt"></i> Log Out</a>
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-dashboard">
+        <!-- Welcome + Profile Section -->
+        <div class="dashboard-header">
+            <div class="welcome-area">
+                <h1>Welcome, Sophia Reynolds</h1>
+                <p><i class="fas fa-star-of-life"></i> Your wellness journey awaits</p>
+            </div>
+            <div class="profile-section">
+                <div class="profile-icon">
+                    <i class="fas fa-spa"></i>
+                </div>
+                <div class="profile-info">
+                    <h4>Sophia R.</h4>
+                    <span>Member since 2024 • Gold Tier</span>
+                </div>
+                <i class="fas fa-chevron-down" style="color:#b76e79; font-size: 0.8rem;"></i>
+            </div>
+        </div>
+
+        <!-- Quick Actions Row -->
+        <div class="quick-actions">
+            <div class="action-card">
+                <i class="fas fa-calendar-check"></i>
+                <h3>Book Appointment</h3>
+                <p>Schedule your next salon, spa or gym session</p>
+                <a href="booking_form.html" class="action-btn">Book Now →</a>
+            </div>
+            <div class="action-card">
+                <i class="fas fa-clock"></i>
+                <h3>View Upcoming</h3>
+                <p>Check your upcoming bookings & status</p>
+                <a href="booking.html" class="action-btn">View Bookings →</a>
+            </div>
+        </div>
+
+        <!-- Dashboard Grid 2 Columns -->
+        <div class="dashboard-grid">
+            <!-- Upcoming Appointments Table -->
+            <div class="info-card">
+                <h3><i class="far fa-calendar-alt"></i> Upcoming Appointments</h3>
+                <table class="appointments-table">
+                    <thead>
+                        <tr><th>Date</th><th>Time</th><th>Service</th><th>Status</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>15 Oct 2023</td>
+                            <td>2:00 PM</td>
+                            <td>Massage Therapy</td>
+                            <td><span class="status-badge">Confirmed</span></td>
+                        </tr>
+                        <tr>
+                            <td>22 Oct 2023</td>
+                            <td>10:00 AM</td>
+                            <td>Haircut & Styling</td>
+                            <td><span class="status-badge status-pending">Pending</span></td>
+                        </tr>
+                        <tr>
+                            <td>05 Nov 2023</td>
+                            <td>4:30 PM</td>
+                            <td>Personal Training</td>
+                            <td><span class="status-badge">Confirmed</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div style="margin-top: 12px; text-align: right;">
+                    <a href="booking.html" class="card-link">Manage all bookings →</a>
+                </div>
+            </div>
+
+            <!-- Past Services Summary -->
+            <div class="info-card past-services-summary">
+                <h3><i class="fas fa-history"></i> Past Services Summary</h3>
+                <div class="past-item"><span>💆‍♀️ Facial (Signature Radiance)</span><span>10 Sept 2023</span></div>
+                <div class="past-item"><span>💅 Manicure & Paraffin Wax</span><span>25 Aug 2023</span></div>
+                <div class="past-item"><span>🏋️‍♀️ HIIT Session (Gym)</span><span>14 July 2023</span></div>
+                <div class="past-item"><span>🌸 Aromatherapy Massage</span><span>02 June 2023</span></div>
+                <div style="margin-top: 12px;"><a href="payment.html" class="card-link">View full history →</a></div>
+            </div>
+        </div>
+
+        <!-- Second Row: Special Offers & Help -->
+        <div class="dashboard-grid">
+            <!-- Special Offers Card -->
+            <div class="info-card special-offers">
+                <h3><i class="fas fa-tag"></i> Special Offers</h3>
+                <div class="offer-item"><i class="fas fa-percent"></i> <span><strong>10% off</strong> for new clients (first visit)</span></div>
+                <div class="offer-item"><i class="fas fa-calendar-week"></i> <span><strong>Weekday Special</strong> – 15% off on massages (Mon-Thu)</span></div>
+                <div class="offer-item"><i class="fas fa-hand-sparkles"></i> <span><strong>Refer a friend</strong> – Get complimentary express facial</span></div>
+                <div class="offer-item"><i class="fas fa-dumbbell"></i> <span>Gym trial pass: 3 days free for new members</span></div>
+            </div>
+
+            <!-- Help Section -->
+            <div class="info-card">
+                <h3><i class="fas fa-headset"></i> Help & Support</h3>
+                <div class="help-links">
+                    <a href="#"><i class="fas fa-envelope"></i> Contact Us</a>
+                    <a href="#"><i class="fas fa-shield-alt"></i> Privacy Policy</a>
+                    <a href="#"><i class="fas fa-question-circle"></i> FAQ</a>
+                    <a href="#"><i class="fas fa-file-alt"></i> Terms of Service</a>
+                </div>
+                <div style="margin-top: 24px; background:#fbf7f4; border-radius: 20px; padding: 12px;">
+                    <p style="font-size: 0.8rem;"><i class="fas fa-phone-alt"></i> <strong>Emergency support:</strong> +92 21 111 222 333</p>
+                    <p style="font-size: 0.75rem; color:#777;">Mon-Sat: 9am – 9pm</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Services & Pricing Section -->
+        <div class="info-card full-width-card">
+            <h3><i class="fas fa-list-ul"></i> Services & Pricing (Quick Look)</h3>
+            <ul class="services-list">
+                <li><span>💆‍♀️ Luxury Facial</span><span class="service-price">$65</span></li>
+                <li><span>✂️ Haircut + Blowdry</span><span class="service-price">$45</span></li>
+                <li><span>🧖‍♀️ Deep Tissue Massage (60min)</span><span class="service-price">$85</span></li>
+                <li><span>🏋️ Gym Day Pass</span><span class="service-price">$20</span></li>
+                <li><span>💅 Manicure & Pedicure Combo</span><span class="service-price">$55</span></li>
+            </ul>
+            <div style="margin-top: 12px;"><a href="#" class="card-link">View full menu →</a></div>
+        </div>
+
+        <!-- Footer -->
+        <div class="dashboard-footer">
+            <p>✨ <strong>Sponsored Content:</strong> Discover our new "Winter Glow" package – 20% off for members ✨</p>
+            <p>© 2026 Glow & Fit Luxury Services. All Rights Reserved. | Elevate your beauty & fitness</p>
+        </div>
+    </main>
+</div>
+</body>
+</html>
