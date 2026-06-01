@@ -436,4 +436,112 @@ body {
         padding: 8px 4px;
         font-size: 0.75rem;
     }
+} 
+/* ====================================================== */
+/* ADDED BY ALISHBA: LOGOUT MODAL BOX FUNCTIONAL STYLES   */
+/* ====================================================== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(44, 44, 44, 0.4); 
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.modal-overlay.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.logout-card {
+    background-color: #ffffff;
+    padding: 35px 40px;
+    border-radius: 24px;
+    box-shadow: 0 15px 35px rgba(183, 110, 121, 0.15);
+    text-align: center;
+    max-width: 420px;
+    width: 90%; 
+    transform: scale(0.85);
+    transition: transform 0.3s ease-in-out;
+    border: 1px solid #f4e0e2;
+}
+
+.modal-overlay.show .logout-card {
+    transform: scale(1);
+}
+
+.card-icon {
+    font-size: 2.6rem;
+    color: #b76e79; 
+    margin-bottom: 15px;
+}
+
+.logout-card h2 {
+    font-family: 'Playfair Display', serif;
+    color: #2c2c2c;
+    font-size: 1.45rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.logout-card p {
+    color: #6b6b6b;
+    font-size: 0.88rem;
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.modal-buttons button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 50px; 
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    flex: 1;
+    transition: all 0.2s ease;
+}
+
+.btn-yes {
+    background-color: #b76e79; 
+    color: white;
+}
+
+.btn-yes:hover {
+    background-color: #a25c67;
+    box-shadow: 0 6px 15px rgba(183, 110, 121, 0.3);
+}
+
+.btn-no {
+    background-color: #fbf7f4;
+    color: #b76e79;
+    border: 1px solid #f4e0e2 !important;
+}
+
+.btn-no:hover {
+    background-color: #f9eff0;
+}
+
+@media (max-width: 380px) {
+    .modal-buttons {
+        flex-direction: column;
+    }
+    .logout-card {
+        padding: 25px 20px;
+    }
 }
