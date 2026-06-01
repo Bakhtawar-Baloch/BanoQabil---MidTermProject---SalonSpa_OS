@@ -172,5 +172,35 @@
         </div>
     </div>
 </div>
+	<!-- ====================================================== -->
+<!-- ADDED BY ALISHBA: LOGOUT MODAL JAVASCRIPT LOGIC        -->
+<!-- ====================================================== -->
+<script>
+    const logoutBtnSidebar = document.querySelector('.log-out-btn-sidebar'); 
+    const logoutModal = document.getElementById('logoutModal');
+    const confirmLogout = document.getElementById('confirmLogout');
+    const cancelLogout = document.getElementById('cancelLogout');
+
+    if(logoutBtnSidebar) {
+        logoutBtnSidebar.addEventListener('click', (e) => {
+            e.preventDefault(); 
+            logoutModal.classList.add('show');
+        });
+    }
+
+    cancelLogout.addEventListener('click', () => {
+        logoutModal.classList.remove('show');
+    });
+
+    confirmLogout.addEventListener('click', () => {
+        window.location.href = "index.html"; 
+    });
+
+    logoutModal.addEventListener('click', (e) => {
+        if (e.target === logoutModal) {
+            logoutModal.classList.remove('show');
+        }
+    });
+</script>
 </body>
 </html>
