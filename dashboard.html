@@ -182,61 +182,74 @@
 </div>
 
 <!-- SCRIPTS -->
+<!-- SCRIPTS -->
 <script>
+    // --- SIDEBAR TOGGLE LOGIC ---
     const toggleSidebarBtn = document.getElementById('toggleSidebar');
     const openMobileSidebarBtn = document.getElementById('openMobileSidebar');
     const dashboardWrapper = document.querySelector('.dashboard-wrapper');
 
+    // Desktop Toggle
     if (toggleSidebarBtn) {
         toggleSidebarBtn.addEventListener('click', () => {
             dashboardWrapper.classList.toggle('sidebar-collapsed');
         });
     }
 
+    // Mobile Toggle
     if (openMobileSidebarBtn) {
         openMobileSidebarBtn.addEventListener('click', () => {
-            dashboardWrapper.classList.add('mobile-sidebar-active');
+            dashboardWrapper.classList.toggle('mobile-sidebar-active');
         });
     }
 
+    // Click outside to close mobile sidebar
     document.addEventListener('click', (e) => {
         if (window.innerWidth <= 900) {
             const sidebar = document.querySelector('.sidebar');
-            if (sidebar && openMobileSidebarBtn && !sidebar.contains(e.target) && !openMobileSidebarBtn.contains(e.target)) {
+            if (dashboardWrapper.classList.contains('mobile-sidebar-active') && 
+                !sidebar.contains(e.target) && 
+                !openMobileSidebarBtn.contains(e.target)) {
                 dashboardWrapper.classList.remove('mobile-sidebar-active');
             }
         }
     });
 
-    const logoutBtnSidebar = document.querySelector('.log-out-btn-sidebar'); 
+    // --- LOGOUT MODAL LOGIC ---
+    const logoutBtnSidebar = document.querySelector('.log-out-btn-sidebar');
     const logoutModal = document.getElementById('logoutModal');
     const confirmLogout = document.getElementById('confirmLogout');
     const cancelLogout = document.getElementById('cancelLogout');
 
-    if(logoutBtnSidebar) {
+    // Modal show karne ke liye
+    if (logoutBtnSidebar) {
         logoutBtnSidebar.addEventListener('click', (e) => {
             e.preventDefault(); 
             logoutModal.classList.add('show');
         });
     }
 
-    if(cancelLogout) {
+    // Modal close karne ke liye ('No, Stay' button)
+    if (cancelLogout) {
         cancelLogout.addEventListener('click', () => {
             logoutModal.classList.remove('show');
         });
     }
 
-    if(confirmLogout) {
-        confirmLogout.addEventListener('click', () => {
-            window.location.href = "index.html"; 
-        });
-    }
-
-    if(logoutModal) {
+    // Click outside modal to close
+    if (logoutModal) {
         logoutModal.addEventListener('click', (e) => {
             if (e.target === logoutModal) {
                 logoutModal.classList.remove('show');
             }
+        });
+    }
+
+    // Real Action ('Yes, Log Out' button)
+    if (confirmLogout) {
+        confirmLogout.addEventListener('click', () => {
+            alert('Logging out...'); 
+            logoutModal.classList.remove('show');
         });
     }
 </script>
