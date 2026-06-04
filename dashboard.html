@@ -10,26 +10,37 @@
 </head>
 <body>
 <div class="dashboard-wrapper">
-    <!-- SIDEBAR : Navigation Menu -->
+    
+    <!-- SIDEBAR -->
     <aside class="sidebar">
+        <button id="toggleSidebar" class="toggle-btn-inner">
+            <i class="fas fa-bars"></i>
+        </button>
         <div class="sidebar-logo">Glow<span>&</span>Fit</div>
         <ul class="nav-menu">
             <li><a href="dashboard.html" class="nav-item active"><i class="fas fa-tachometer-alt"></i> Dashboard Home</a></li>
             <li><a href="booking.html" class="nav-item"><i class="fas fa-bookmark"></i> My Bookings</a></li>
             <li><a href="payment.html" class="nav-item"><i class="fa fa-usd"></i>My Payments</a></li>
-	    <li><a href="booking_form.html" class="nav-item"><i class="fas fa-calendar-plus"></i>+ New Appointment</a></li>
+            <li><a href="booking_form.html" class="nav-item"><i class="fas fa-calendar-plus"></i>+ New Appointment</a></li>
             <li><a href="payment_form.html" class="nav-item"><i class="fa fa-credit-card-alt"></i>+ New Payment</a></li>
             <li><a href="index.html" class="nav-item"><i class="fa fa-internet-explorer"></i> Website</a></li>
         </ul>
-   <div class="logout-item">
+        <div class="logout-item">
             <a href="#" class="nav-item log-out-btn-sidebar"><i class="fas fa-sign-out-alt"></i> Log Out</a>
         </div>
     </aside>
-    
 
     <!-- MAIN CONTENT -->
     <main class="main-dashboard">
-        <!-- Welcome + Profile Section -->
+        <!-- Mobile Top Nav Bar -->
+        <div class="mobile-nav-bar">
+            <button id="openMobileSidebar" class="mobile-toggle-btn">
+                <i class="fas fa-bars"></i> Menu
+            </button>
+            <div class="mobile-logo">Glow<span>&</span>Fit</div>
+        </div>
+
+        <!-- Dashboard Header -->
         <div class="dashboard-header">
             <div class="welcome-area">
                 <h1>Welcome, Sophia Reynolds</h1>
@@ -111,7 +122,6 @@
 
         <!-- Second Row: Special Offers & Help -->
         <div class="dashboard-grid">
-            <!-- Special Offers Card -->
             <div class="info-card special-offers">
                 <h3><i class="fas fa-tag"></i> Special Offers</h3>
                 <div class="offer-item"><i class="fas fa-percent"></i> <span><strong>10% off</strong> for new clients (first visit)</span></div>
@@ -120,7 +130,6 @@
                 <div class="offer-item"><i class="fas fa-dumbbell"></i> <span>Gym trial pass: 3 days free for new members</span></div>
             </div>
 
-            <!-- Help Section -->
             <div class="info-card">
                 <h3><i class="fas fa-headset"></i> Help & Support</h3>
                 <div class="help-links">
@@ -155,10 +164,9 @@
             <p>© 2026 Glow & Fit Luxury Services. All Rights Reserved. | Elevate your beauty & fitness</p>
         </div>
     </main>
-</div> 
-	<!-- ====================================================== -->
-<!-- ADDED BY ALISHBA: LOGOUT MODAL HTML                    -->
-<!-- ====================================================== -->
+</div>
+
+<!-- LOGOUT MODAL -->
 <div id="logoutModal" class="modal-overlay">
     <div class="logout-card">
         <div class="card-icon">
@@ -166,17 +174,40 @@
         </div>
         <h2>Are you sure you want to log out?</h2>
         <p>You will need to login again to access your Glow & Fit dashboard.</p>
-        
         <div class="modal-buttons">
             <button id="confirmLogout" class="btn-yes">Yes, Log Out</button>
             <button id="cancelLogout" class="btn-no">No, Stay</button>
         </div>
     </div>
 </div>
-	<!-- ====================================================== -->
-<!-- ADDED BY ALISHBA: LOGOUT MODAL JAVASCRIPT LOGIC        -->
-<!-- ====================================================== -->
+
+<!-- SCRIPTS -->
 <script>
+    const toggleSidebarBtn = document.getElementById('toggleSidebar');
+    const openMobileSidebarBtn = document.getElementById('openMobileSidebar');
+    const dashboardWrapper = document.querySelector('.dashboard-wrapper');
+
+    if (toggleSidebarBtn) {
+        toggleSidebarBtn.addEventListener('click', () => {
+            dashboardWrapper.classList.toggle('sidebar-collapsed');
+        });
+    }
+
+    if (openMobileSidebarBtn) {
+        openMobileSidebarBtn.addEventListener('click', () => {
+            dashboardWrapper.classList.add('mobile-sidebar-active');
+        });
+    }
+
+    document.addEventListener('click', (e) => {
+        if (window.innerWidth <= 900) {
+            const sidebar = document.querySelector('.sidebar');
+            if (sidebar && openMobileSidebarBtn && !sidebar.contains(e.target) && !openMobileSidebarBtn.contains(e.target)) {
+                dashboardWrapper.classList.remove('mobile-sidebar-active');
+            }
+        }
+    });
+
     const logoutBtnSidebar = document.querySelector('.log-out-btn-sidebar'); 
     const logoutModal = document.getElementById('logoutModal');
     const confirmLogout = document.getElementById('confirmLogout');
@@ -189,19 +220,25 @@
         });
     }
 
-    cancelLogout.addEventListener('click', () => {
-        logoutModal.classList.remove('show');
-    });
-
-    confirmLogout.addEventListener('click', () => {
-        window.location.href = "index.html"; 
-    });
-
-    logoutModal.addEventListener('click', (e) => {
-        if (e.target === logoutModal) {
+    if(cancelLogout) {
+        cancelLogout.addEventListener('click', () => {
             logoutModal.classList.remove('show');
-        }
-    });
+        });
+    }
+
+    if(confirmLogout) {
+        confirmLogout.addEventListener('click', () => {
+            window.location.href = "index.html"; 
+        });
+    }
+
+    if(logoutModal) {
+        logoutModal.addEventListener('click', (e) => {
+            if (e.target === logoutModal) {
+                logoutModal.classList.remove('show');
+            }
+        });
+    }
 </script>
 </body>
 </html>
