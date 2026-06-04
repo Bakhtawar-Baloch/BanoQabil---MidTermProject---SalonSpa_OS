@@ -535,6 +535,11 @@ body {
     padding: 5px;
 }
 
+/* DESKTOP PAR MENU BUTTON KO HIDE RAKHNA HAI */
+.mobile-nav-bar {
+    display: none;
+}
+
 /* --- DESKTOP COLLAPSE MODE (Screens bigger than 900px) --- */
 @media (min-width: 901px) {
     /* Click karne par sidebar elegant chhota box banega (85px) */
