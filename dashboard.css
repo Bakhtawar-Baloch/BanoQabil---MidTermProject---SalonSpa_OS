@@ -545,3 +545,26 @@ body {
         padding: 25px 20px;
     }
 }
+
+/* ====================================================== */
+/* ADDED: SIDEBAR TOGGLE AND MOBILE FUNCTIONAL STYLES     */
+/* ====================================================== */
+.dashboard-wrapper.sidebar-collapsed {
+    grid-template-columns: 0 1fr;
+}
+
+.dashboard-wrapper.sidebar-collapsed .sidebar {
+    transform: translateX(-100%);
+    opacity: 0;
+    pointer-events: none;
+    padding: 0;
+    width: 0;
+}
+
+.dashboard-wrapper.mobile-sidebar-active .sidebar {
+    position: fixed;
+    left: 0;
+    z-index: 999;
+    width: 280px;
+    transform: translateX(0);
+}
