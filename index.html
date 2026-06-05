@@ -16,9 +16,9 @@
      <a href="#why-choose-us">Why us</a> 
      <a href="#testimonials">Reviews</a>
     </nav>
-    <div class="nav-btn">
-        <a href="dashboard.html" class="btn-login">Login</a>
-    </div>
+     <div class="nav-btn">
+    <button id="loginBtn" class="btn-login" style="cursor: pointer; border: none; outline: none;">Login</button>
+</div>
 </header>
 <!--Hero section-->
 <section id="home" class="hero">
@@ -126,5 +126,63 @@
       <p>&copy; 2026 Glow & Fit Luxury Services. All Rights Reserved.</p>  
     </div>
    </footer>
+        <div class="login-overlay" id="loginModal">
+        <div class="login-modal-box">
+            <span class="close-btn" id="closeModal">&times;</span>
+            
+            <div class="modal-header">
+                <h2 class="logo">Glow<span>&</span>Fit</h2>
+                <p>Enter your details to access the dashboard</p>
+            </div>
+
+            <form action="dashboard.html" class="modal-form">
+                <div class="input-field">
+                    <label>Username</label>
+                    <input type="text" placeholder="Your Full Name" required>
+                </div>
+
+                <div class="input-field">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="example@mail.com" required>
+                </div>
+
+                <div class="input-field">
+                    <label>Address</label>
+                    <input type="text" placeholder="Your City/Address" required>
+                </div>
+
+                <div class="input-field">
+                    <label>Password</label>
+                    <input type="password" placeholder="••••••••" required>
+                </div>
+
+                <button type="submit" class="btn-submit">Login Now</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const loginBtn = document.getElementById('loginBtn');
+        const loginModal = document.getElementById('loginModal');
+        const closeModal = document.getElementById('closeModal');
+
+        loginBtn.addEventListener('click', () => {
+            loginModal.style.display = 'flex';
+        });
+
+        closeModal.addEventListener('click', () => {
+            loginModal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === loginModal) {
+                loginModal.style.display = 'none';
+            }
+        });
+    </script>
+
 </body>
 </html>
+
+
+
