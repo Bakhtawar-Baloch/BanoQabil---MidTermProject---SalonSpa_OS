@@ -635,16 +635,13 @@ body {
         z-index: 1000;
     }
 }
-/* ========================================================
-   UPDATED BY LEO: LOGO CLIPPING & DESKTOP HAMBURGER FIXES
-   ======================================================== */
 
 /* 1. DESKTOP MODE LOGO FIX (Text ko smoothly chupao taake logo na kate) */
 @media (min-width: 901px) {
     .dashboard-wrapper.sidebar-collapsed .sidebar-logo {
         font-size: 0 !important;
-        opacity: 0; /* Text mukammal gayab ho jaye ga */
-        border-bottom: none !important; /* Collapsed mode me border line buri lagti hai */
+        opacity: 0; 
+        border-bottom: none !important; 
         padding-bottom: 0 !important;
         margin-bottom: 1.5rem !important;
         transition: all 0.3s ease;
@@ -658,7 +655,7 @@ body {
 
 /* 2. DESKTOP HAMBURGER THEME FIX (Default black line ko Rose Gold banana) */
 .toggle-btn-inner {
-    background: #f9eff0 !important; /* Mobile jaisa aesthetic light pink */
+    background: #f9eff0 !important; 
     border: 1px solid #f4e0e2 !important;
     color: #b76e79 !important; /* Glow & Fit ka Rose Gold color */
     padding: 8px 14px !important;
@@ -677,7 +674,6 @@ body {
     color: white !important;
 }
 
-/* FontAwesome icon ka color handle karne ke liye */
 .toggle-btn-inner i {
     color: inherit !important; 
     font-size: 1rem !important;
