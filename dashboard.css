@@ -582,3 +582,56 @@ body {
         display: none !important;
     }
 }
+/* --- THEME CUSTOMIZATION FOR MOBILE HEADER --- */
+
+/* 1. Mobile Toggle Button aur "Menu" text ko theme color dena */
+.mobile-toggle-btn {
+    background: #f9eff0 !important; /* Light pink background */
+    border: 1px solid #f4e0e2 !important;
+    color: #b76e79 !important; /* Theme Rose Gold color */
+    padding: 8px 15px !important;
+    border-radius: 50px !important;
+    font-weight: 600 !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+/* 2. Bars icon (Three lines) ka color change */
+.mobile-toggle-btn i {
+    color: #b76e79 !important;
+    font-size: 1.1rem;
+}
+
+/* 3. Logo jo kat raha hai usko fix karna */
+.mobile-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px; /* Size thoda set kiya */
+    font-weight: 700;
+    color: #2c2c2c;
+    white-space: nowrap; /* Katne se rokega */
+    display: flex;
+    align-items: center;
+}
+
+.mobile-logo span {
+    color: #b76e79;
+    margin: 0 2px;
+}
+
+/* 4. Mobile Top Bar ki styling (Spacing theek karne ke liye) */
+@media (max-width: 900px) {
+    .mobile-nav-bar {
+        display: flex !important;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px !important;
+        background: white !important;
+        border-bottom: 1px solid #f4e0e2 !important;
+        width: 100%;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+}
