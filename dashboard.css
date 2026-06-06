@@ -519,117 +519,66 @@ body {
     }
 }
 
-/* ====================================================== */
-/* FIXED: SIDEBAR TOGGLE AND MOBILE FUNCTIONAL STYLES     */
-/* ====================================================== */
-
-/* Clean style for toggle button inside sidebar */
-.toggle-btn-inner {
-    background: transparent;
-    border: none;
-    color: #b76e79;
-    font-size: 1.3rem;
-    cursor: pointer;
-    align-self: flex-start;
-    margin-bottom: 1rem;
-    padding: 5px;
-}
-
-/* DESKTOP PAR MENU BUTTON KO HIDE RAKHNA HAI */
-.mobile-nav-bar {
-    display: none;
-}
-
-/* --- DESKTOP COLLAPSE MODE (Screens bigger than 900px) --- */
-    /* ========================================================
-   BLOCK 1: DESKTOP COLLAPSE MODE (Screens bigger than 900px)
+/* ========================================================
+   FIXED: DESKTOP COLLAPSE & MOBILE DRAWER LOGIC
    ======================================================== */
-/* @media (min-width: 901px) {
+
+/* 1. DESKTOP MODE (Jab bars par click ho to sidebar chota ho jaye) */
+@media (min-width: 901px) {
     .dashboard-wrapper.sidebar-collapsed {
-        grid-template-columns: 85px 1fr;
+        grid-template-columns: 85px 1fr !important; /* Sidebar ko chota karega */
     } 
+
+    /* Collapse hone par logo aur links ka text hide ho jaye, sirf icons bachein */
+    .dashboard-wrapper.sidebar-collapsed .sidebar-logo,
+    .dashboard-wrapper.sidebar-collapsed .nav-item {
+        overflow: hidden;
+        white-space: nowrap;
+    }
 
     .dashboard-wrapper.sidebar-collapsed .sidebar-logo span,
     .dashboard-wrapper.sidebar-collapsed .nav-item {
-        font-size: 0;
-    }
-
-    .dashboard-wrapper.sidebar-collapsed .sidebar-logo {
-        font-size: 16px;
-        text-align: center;
-        padding-bottom: 0.8rem;
+        font-size: 0 !important; 
     }
 
     .dashboard-wrapper.sidebar-collapsed .sidebar {
-        padding: 2rem 0.8rem;
+        padding: 2rem 0.5rem !important;
+        align-items: center;
     }
 
-    .dashboard-wrapper.sidebar-collapsed .sidebar .nav-item {
+    .dashboard-wrapper.sidebar-collapsed .nav-item {
         justify-content: center;
-        padding: 12px 0;
+        width: 100%;
     }
 
-    .dashboard-wrapper.sidebar-collapsed .sidebar .nav-item i {
-        font-size: 1.3rem;
+    .dashboard-wrapper.sidebar-collapsed .nav-item i {
+        font-size: 1.4rem; /* Icons thode bade aur center dikhenge */
         margin: 0;
-        width: auto;
     }
 }
-*/
 
-/* ========================================================
-   BLOCK 2: MOBILE DRAWER MODE (Screens 900px or smaller)
-   ======================================================== */
-/*
+/* 2. MOBILE MODE (Glow & Fit Mobile Header aur Drawer Logic) */
 @media (max-width: 900px) {
     .mobile-nav-bar {
-        display: flex !important;
-    }
-
-    .dashboard-wrapper.sidebar-collapsed {
-        grid-template-columns: 1fr;
+        display: flex !important; 
     }
 
     .sidebar {
         position: fixed !important;
-        left: -300px; 
+        left: -300px !important; 
         top: 0;
         height: 100vh !important;
         width: 280px !important;
         z-index: 9999 !important;
-        flex-direction: column !important;
-        flex-wrap: nowrap !important;
-        padding: 2rem 1.5rem !important;
-        transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-        box-shadow: 10px 0 30px rgba(0,0,0,0.1);
-        display: flex !important;
-        opacity: 1 !important;
-        pointer-events: auto !important;
-        transform: none !important;
-    }
-
-    .sidebar-logo {
-        width: auto !important;
-        margin-bottom: 2.5rem !important;
-    }
-
-    .nav-menu {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 0 !important;
-    }
-
-    .nav-item {
-        justify-content: flex-start !important;
-        font-size: 15px !important;
+        transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important; /* Smooth slide effect */
     }
 
     .dashboard-wrapper.mobile-sidebar-active .sidebar {
         left: 0 !important;
     }
     
+
     .sidebar .toggle-btn-inner {
         display: none !important;
     }
 }
-*/
