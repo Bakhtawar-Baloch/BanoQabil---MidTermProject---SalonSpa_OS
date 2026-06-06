@@ -541,26 +541,25 @@ body {
 }
 
 /* --- DESKTOP COLLAPSE MODE (Screens bigger than 900px) --- */
-@media (min-width: 901px) {
-    /* Click karne par sidebar elegant chhota box banega (85px) */
+    /* ========================================================
+   BLOCK 1: DESKTOP COLLAPSE MODE (Screens bigger than 900px)
+   ======================================================== */
+/* @media (min-width: 901px) {
     .dashboard-wrapper.sidebar-collapsed {
         grid-template-columns: 85px 1fr;
-    }
+    } 
 
-    /* Collapse hone par menu ka text aur logo ka span text gayab ho jayega layout hile bina */
     .dashboard-wrapper.sidebar-collapsed .sidebar-logo span,
     .dashboard-wrapper.sidebar-collapsed .nav-item {
         font-size: 0;
     }
 
-    /* Logo text ko center aur chhota set karein */
     .dashboard-wrapper.sidebar-collapsed .sidebar-logo {
         font-size: 16px;
         text-align: center;
         padding-bottom: 0.8rem;
     }
 
-    /* Links ke icons ko bilkul center mein align karein */
     .dashboard-wrapper.sidebar-collapsed .sidebar {
         padding: 2rem 0.8rem;
     }
@@ -576,23 +575,24 @@ body {
         width: auto;
     }
 }
+*/
 
-/* --- MOBILE DRAWER MODE (Screens 900px or smaller) --- */
+/* ========================================================
+   BLOCK 2: MOBILE DRAWER MODE (Screens 900px or smaller)
+   ======================================================== */
+/*
 @media (max-width: 900px) {
-    /* Mobile top nav bar layout trigger karne ke liye overlay automatic display */
     .mobile-nav-bar {
         display: flex !important;
     }
 
-    /* Mobile screen par desktop grid rules ko override kar dein taake layout block na ho */
     .dashboard-wrapper.sidebar-collapsed {
         grid-template-columns: 1fr;
     }
 
-    /* Sidebar ko hidden sliding drawer mein convert karein */
     .sidebar {
         position: fixed !important;
-        left: -300px; /* Shuru mein screen se bahar chipi rahegi */
+        left: -300px; 
         top: 0;
         height: 100vh !important;
         width: 280px !important;
@@ -624,13 +624,12 @@ body {
         font-size: 15px !important;
     }
 
-    /* Jab mobile bar ke ham-burger button par click ho, toh drawer samne slide ho jaye */
     .dashboard-wrapper.mobile-sidebar-active .sidebar {
         left: 0 !important;
     }
     
-    /* Mobile screen par sidebar ke andar wale inner toggle button ko hide rakhein */
     .sidebar .toggle-btn-inner {
         display: none !important;
     }
 }
+*/
