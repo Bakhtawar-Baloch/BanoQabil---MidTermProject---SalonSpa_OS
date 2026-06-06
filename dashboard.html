@@ -246,12 +246,14 @@
     }
 
     // Real Action ('Yes, Log Out' button)
-    if (confirmLogout) {
-        confirmLogout.addEventListener('click', () => {
-            alert('Logging out...'); 
-            logoutModal.classList.remove('show');
-        });
-    }
+if (confirmLogout) {
+    confirmLogout.addEventListener('click', () => {
+        alert('Logging out...'); 
+        logoutModal.classList.remove('show');
+        window.location.href = 'index.html'; 
+    });
+}
+    
 </script>
 </body>
 </html>
