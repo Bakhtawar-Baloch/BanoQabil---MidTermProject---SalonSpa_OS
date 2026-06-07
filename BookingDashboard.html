@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Glow & Fit | Client Dashboard</title>
+    <link rel="stylesheet" href="Dashboard.css">
+    <link rel="stylesheet" href="Form.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+<div class="dashboard-wrapper">
+    
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <button id="toggleSidebar" class="toggle-btn-inner">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="sidebar-logo">Glow<span>&</span>Fit</div>
+        <ul class="nav-menu">
+            <li><a href="dashboard.html" class="nav-item"><i class="fas fa-tachometer-alt"></i> Dashboard Home</a></li>
+            <li><a href="BookingDashboard.html" class="nav-item active"><i class="fas fa-bookmark"></i> My Bookings</a></li>
+            <li><a href="PaymentDashboard.html" class="nav-item"><i class="fa fa-usd"></i>My Payments</a></li>
+            <li><a href="#" class="nav-item bookNowBtn"><i class="fas fa-calendar-plus"></i>+ Appt. / Payment</a></li>
+            <li><a href="index.html" class="nav-item"><i class="fa fa-internet-explorer"></i> Website</a></li>
+        </ul>
+        <div class="logout-item">
+            <a href="#" class="nav-item log-out-btn-sidebar"><i class="fas fa-sign-out-alt"></i> Log Out</a>
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-dashboard">
+        <!-- Mobile Top Nav Bar -->
+        <div class="mobile-nav-bar">
+            <button id="openMobileSidebar" class="mobile-toggle-btn">
+                <i class="fas fa-bars"></i> Menu
+            </button>
+            <div class="mobile-logo">Glow<span>&</span>Fit</div>
+        </div>
+
+        <!-- Dashboard Header -->
+        <div class="dashboard-header">
+            <div class="welcome-area">
+                <h1>Welcome, Sophia Reynolds</h1>
+                <p><i class="fas fa-star-of-life"></i> Your wellness journey awaits</p>
+            </div>
+            <div class="profile-section">
+                <div class="profile-icon">
+                    <i class="fas fa-spa"></i>
+                </div>
+                <div class="profile-info">
+                    <h4>Sophia R.</h4>
+                    <span>Admin Account</span>
+                </div>
+                <i class="fas fa-chevron-down" style="color:#b76e79; font-size: 0.8rem;"></i>
+            </div>
+        </div>
+
+        <!-- Quick Actions Row -->
+        <div class="quick-actions">
+            <div class="action-card">
+                <i class="fas fa-calendar-check"></i>
+                <h3>Book Appointment</h3>
+                <p>Schedule your next salon, spa or gym session</p>
+                <a href="#" class="action-btn bookNowBtn">Book Now →</a>
+            </div>
+            <div class="action-card">
+                <i class="fas fa-clock"></i>
+                <h3>View Payments</h3>
+                <p>Check your payments & statuses</p>
+                <a href="PaymentDashboard.html" class="action-btn">View Payments →</a>
+            </div>
+        </div>
+
+        <!-- Dashboard Full Width Columns -->
+        <div class="full-width-card">
+            <!-- Upcoming Appointments Table -->
+            <div class="info-card">
+                <h3><i class="far fa-calendar-alt"></i>My Bookings</h3>
+                <table class="appointments-table">
+		<thead>			
+			<tr>
+				<th><input type="checkbox"></th>
+				<th>Client Name</th>
+				<th> </th>
+				<th>Service</th>
+				<th>Appt. Status</th>
+				<th>Charges</th>
+				<th>Qty.</th>
+				<th>Create Date</th>
+				<th>Appt. Date</th>
+			</tr>
+		</thead>
+                    
+		<tbody>
+                        <tr>
+				<td><input type="checkbox"></td>
+				<td>Mrs. Sana</td>
+				<td><span class="service-badge">SALON</td>
+				<td>Hair Cut</td>
+				<td><span class="status-confirmed">Completed</td>
+				<td>$30</td>
+				<td>1</td>
+				<td>Feb 15, 2022</td>
+				<td>May 29, 2026</td>
+			</tr>
+
+			<tr>
+				<td><input type="checkbox"></td>
+				<td>Benazir</td>
+				<td><span class="service-badge">GYM</td>
+				<td>Gym Subscription</td>
+				<td><span class="status-confirmed">Completed</td>
+				<td>$150</td>
+				<td>1</td>
+				<td>Feb 15, 2022</td>
+				<td>May 29, 2026</td>
+			</tr>
+
+			<tr>
+				<td><input type="checkbox"></td>
+				<td>Alishba</td>
+				<td><span class="service-badge">SALON</td>
+				<td>Party Makeup</td>
+				<td><span class="status-cancelled">Cancelled</td>
+				<td>$300</td>
+				<td>2</td>
+				<td>Feb 15, 2022</td>
+				<td>Apr 29, 2026</td>
+			</tr>
+
+			<tr>
+				<td><input type="checkbox"></td>
+				<td>Muneeba</td>
+				<td><span class="service-badge">SPA</td>
+				<td>Facial Treatment</td>
+				<td><span class="status-cancelled">Cancelled</td>
+				<td>$100</td>
+				<td>1</td>
+				<td>Mar 20, 2022</td>
+				<td>Jan 29, 2026</td>
+			</tr>
+
+			<tr>
+				<td><input type="checkbox"></td>
+				<td>Bakhtawar</td>
+				<td><span class="service-badge">SPA</td>
+				<td>Sauna Therapy</td>
+				<td><span class="status-pending">Upcoming</td>
+				<td>$500</td>
+				<td>1</td>
+				<td>Mar 21, 2022</td>
+				<td>Jun 30, 2026</td>
+			</tr>
+
+                    </tbody>
+                </table>
+                
+		<div style="margin-top: 12px; text-align: right;">
+                    <a href="booking.html" class="card-link">View all bookings 🎀👇</a>
+                </div>
+            </div>
+     
+        <!-- Footer -->
+        <div class="dashboard-footer">
+            <p>✨ <strong>Sponsored Content:</strong> Discover our new "Summer Glow" package – 20% off for members ✨</p>
+            <p>© 2026 Glow & Fit Luxury Services. All Rights Reserved. | Elevate your beauty & fitness</p>
+        </div>
+    </main>
+</div>
+
+
+
+<!-- LOGOUT MODAL -->
+<div id="logoutModal" class="modal-overlay">
+    <div class="logout-card">
+        <div class="card-icon">
+            <i class="fas fa-sign-out-alt"></i>
+        </div>
+        <h2>Are you sure you want to log out?</h2>
+        <p>You will need to login again to access your Glow & Fit dashboard.</p>
+        <div class="modal-buttons">
+            <button id="confirmLogout" class="btn-yes">Yes, Log Out</button>
+            <button id="cancelLogout" class="btn-no">No, Stay</button>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- NEW BOOKING FORM + Calculator --->
+<!-- NEW BOOKING FORM + Calculator --->
+
+<div class="login-overlay" id="loginModal">
+    		<div class="booking-modal">
+
+        		<span class="close-btn" id="closeModal">&times;</span>
+
+        		<div class="modal-header">
+           			<h2 class="logo">Glow<span>&</span>Fit</h2>
+            			<p>Register New Payment / Book New Appointment</p>
+        		</div>
+
+        	<form action="BookingDashboard.html" class="modal-form">
+
+            		<!-- Client -->
+            		<div class="input-group">
+                		<label>Client Name</label>
+                		<input type="text" placeholder="Client Full Name">
+            		</div>
+
+            		<!-- Dates -->
+            		<div class="row">
+                		<div class="input-group">
+                    		<label>Create Date</label>
+                    		<input type="date">
+                	</div>
+
+                	<div class="input-group">
+                    		<label>Appointment Date</label>
+                    		<input type="date">
+                	</div>
+            		</div>
+
+            		<!-- Services -->
+            		<div class="service-section">
+
+                	<h4>Services Requested</h4>
+
+                	<div class="service-item">
+                    		<label><input type="checkbox">Haircut</label>
+                    		<input type="number" placeholder="Qty">
+                	</div>
+
+                	<div class="service-item">
+                    		<label><input type="checkbox">Sauna Therapy</label>
+                    		<input type="number" placeholder="Qty">
+                	</div>
+
+                	<div class="service-item">
+                    		<label><input type="checkbox">Red Light Therapy</label>
+                    		<input type="number" placeholder="Qty">
+                	</div>
+			
+			<div class="service-item">
+                    		<label><input type="checkbox">Facial Treatment</label>
+                    		<input type="number" placeholder="Qty">
+                	</div>
+
+			<div class="service-item">
+                    		<label><input type="checkbox">Gym Subscription - Quarterly</label>
+                    		<input type="number" placeholder="Qty">
+                	</div>
+
+			<div class="service-item">
+                    		<label><input type="checkbox">Aerobic Subscription - Quarterly</label>
+                    		<input type="number" placeholder="Qty">
+                	</div>
+
+
+            		</div>
+
+            		<!-- Statuses -->
+
+            		<div class="row">
+
+                	<div class="radio-box">
+                    	<h4>Payment Status</h4>
+
+                    		<label><input type="radio" name="payment"> Received</label>
+
+       				<label><input type="radio" name="payment"> Pending</label>
+                	</div>
+
+                	<div class="radio-box">
+                    	<h4>Appointment Status</h4>
+
+                    		<label><input type="radio" name="appointment"> Upcoming</label>
+
+                    		<label><input type="radio" name="appointment"> Completed</label>
+
+                    		<label><input type="radio" name="appointment"> Cancelled</label>
+                	</div>
+
+           	 	</div>
+
+            		<!-- Charges -->
+
+            		<div class="charges-box">
+
+                	<h4>Total Charges</h4>
+
+                	<div class="row">
+                    		<div class="input-group">
+                        		<label>Price</label>
+                        		<input type="number" id="Price">
+                    		</div>
+
+                    		<div class="input-group">
+                        		<label>Quantity</label>
+                        		<input type="number" id="Quantity">
+                    		</div>
+                	</div>
+
+                	<div class="result">
+                    		Total: $<span id="Total">0.00</span>
+                	</div>
+
+            		</div>
+
+            		<button class="btn-submit">Book Appointment</button>
+
+        	</form>
+
+    		</div>
+</div>   
+
+
+<script src="Dashboard.js"></script>
+
+</body>
+</html>

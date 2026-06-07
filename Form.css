@@ -1,0 +1,210 @@
+.login-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.55);
+    backdrop-filter: blur(8px);
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+    z-index: 9999;
+}
+
+.booking-modal {
+
+    background: #fff;
+    width: 100%;
+    max-width: 700px;
+
+    max-height: 90vh;
+    overflow-y: auto;
+
+    border-radius: 24px;
+
+    padding: 35px;
+
+    position: relative;
+
+    box-shadow:
+    0 20px 40px rgba(0,0,0,.15);
+}
+
+
+/* Header CSS */
+
+.modal-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+.logo span {
+    color: #b76e79;
+}
+
+
+
+/* Input Field CSS */
+
+.input-group {
+    margin-bottom: 18px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+}
+
+
+/* Responsiveness CSS - Desktop */
+
+
+.row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+
+
+/* Responsiveness CSS - Mobile */
+
+@media(max-width:768px){
+
+    .row{
+        grid-template-columns: 1fr;
+    }
+
+    .booking-modal{
+        padding:20px;
+        max-height:95vh;
+    }
+
+    .logo{
+        font-size:32px;
+    }
+
+}
+
+
+
+/* Responsiveness CSS - Services Section - Desktop */
+
+.service-section {
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.service-item {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 15px;
+    margin-bottom: 12px;
+}
+
+.service-item input[type="number"] {
+    width: 90px;
+}
+
+
+/* Responsiveness CSS - Services Section - Mobile */
+
+@media(max-width:600px){
+
+    .service-item{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .service-item input[type="number"]{
+        width:100%;
+    }
+
+}
+
+
+/* CSS - Status Boxes */
+
+
+.radio-box {
+
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.radio-box h4 {
+    margin-bottom: 10px;
+}
+
+.radio-box label {
+
+    display: block;
+    margin-bottom: 10px;
+}
+
+
+/* CSS - Charges / Calculator Section */
+
+
+.charges-box {
+
+    background: #fafafa;
+    border-radius: 12px;
+    padding: 20px;
+
+    margin-top: 20px;
+}
+
+.result {
+
+    margin-top: 15px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #b76e79;
+}
+
+
+/* CSS - Submit Button */
+
+
+.btn-submit {
+
+    width: 100%;
+    padding: 15px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: #111;
+    color: white;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    margin-top: 25px;
+    cursor: pointer;
+}
+
+.btn-submit:hover {
+    background: #b76e79;
+}
