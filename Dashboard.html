@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Glow & Fit | Client Dashboard</title>
     <link rel="stylesheet" href="Dashboard.css">
+    <link rel="stylesheet" href="Form.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -179,6 +180,121 @@
         </div>
     </div>
 </div>
+
+<!-- NEW BOOKING FORM + Calculator --->
+<!-- NEW BOOKING FORM + Calculator --->
+
+<div class="login-overlay" id="loginModal">
+    		<div class="booking-modal">
+        		<span class="close-btn" id="closeModal">&times;</span>
+        		<div class="modal-header">
+           			<h2 class="logo">Glow<span>&</span>Fit</h2>
+            			<p>Register New Payment / Book New Appointment</p>
+        		</div>
+
+        	<form action="BookingDashboard.html" class="modal-form">
+            		<!-- Client -->
+            		<div class="input-group">
+                		<label>Client Name</label>
+                		<input type="text" placeholder="Client Full Name">
+            		</div>
+
+            		<!-- Dates -->
+            		<div class="row">
+                		<div class="input-group">
+                    		<label>Create Date</label>
+                    		<input type="date">
+                	</div>
+
+                	<div class="input-group">
+                    		<label>Appointment Date</label>
+                    		<input type="date">
+                	</div>
+            		</div>
+
+            		<!-- Services -->
+            		<div class="service-section">
+                	<h4>Services Requested</h4>
+                	<div class="service-item">
+                    		<label><input type="checkbox">Haircut</label>
+                    		<input type="number" placeholder="Qty">
+                	</div>
+
+                	<div class="service-item">
+                    		<label><input type="checkbox">Sauna Therapy</label>
+                    		<input type="number" placeholder="Qty">
+                	</div>
+
+                	<div class="service-item">
+                    		<label><input type="checkbox">Red Light Therapy</label>
+                    		<input type="number" placeholder="Qty">
+                	</div>
+			
+			        <div class="service-item">
+                    		<label><input type="checkbox">Facial Treatment</label>
+                    		<input type="number" placeholder="Qty">
+                	</div>
+
+			        <div class="service-item">
+                    		<label><input type="checkbox">Gym Subscription - Quarterly</label>
+                    		<input type="number" placeholder="Qty">
+                	</div>
+
+			        <div class="service-item">
+                    		<label><input type="checkbox">Aerobic Subscription - Quarterly</label>
+                    		<input type="number" placeholder="Qty">
+                	</div>
+
+
+            		</div>
+
+            		<!-- Statuses -->
+
+            		<div class="row">
+                	<div class="radio-box">
+                    	<h4>Payment Status</h4>
+                    	<label><input type="radio" name="payment"> Received</label>
+       				    <label><input type="radio" name="payment"> Pending</label>
+                	</div>
+
+                	<div class="radio-box">
+                    	<h4>Appointment Status</h4>
+                    	<label><input type="radio" name="appointment"> Upcoming</label>
+                    	<label><input type="radio" name="appointment"> Completed</label>
+                    	<label><input type="radio" name="appointment"> Cancelled</label>
+                	</div>
+
+           	 	    </div>
+
+            		<!-- Charges -->
+
+            		<div class="charges-box">
+                	
+                    <h4>Total Charges</h4>
+                	<div class="row">
+                    		<div class="input-group">
+                        		<label>Price</label>
+                        		<input type="number" id="Price">
+                    		</div>
+
+                    		<div class="input-group">
+                        		<label>Quantity</label>
+                        		<input type="number" id="Quantity">
+                    		</div>
+                	</div>
+
+                	<div class="result">
+                    		Total: $<span id="Total">0.00</span>
+                	</div>
+
+            		</div>
+
+            		<button class="btn-submit">Book Appointment</button>
+
+        	</form>
+    		</div>
+</div>   
+
 
 <script src="Dashboard.js"></script>    
 </body>
