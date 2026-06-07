@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Glow & Fit | Client Dashboard</title>
-    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="Dashboard.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -18,11 +18,10 @@
         </button>
         <div class="sidebar-logo">Glow<span>&</span>Fit</div>
         <ul class="nav-menu">
-            <li><a href="dashboard.html" class="nav-item active"><i class="fas fa-tachometer-alt"></i> Dashboard Home</a></li>
-            <li><a href="booking.html" class="nav-item"><i class="fas fa-bookmark"></i> My Bookings</a></li>
-            <li><a href="payment.html" class="nav-item"><i class="fa fa-usd"></i>My Payments</a></li>
-            <li><a href="booking_form.html" class="nav-item"><i class="fas fa-calendar-plus"></i>+ New Appointment</a></li>
-            <li><a href="payment_form.html" class="nav-item"><i class="fa fa-credit-card-alt"></i>+ New Payment</a></li>
+            <li><a href="dashboard.html" class="nav-item"><i class="fas fa-tachometer-alt"></i> Dashboard Home</a></li>
+            <li><a href="BookingDashboard.html" class="nav-item"><i class="fas fa-bookmark"></i> My Bookings</a></li>
+            <li><a href="PaymentDashboard.html" class="nav-item active"><i class="fa fa-usd"></i>My Payments</a></li>
+            <li><a href="#" class="nav-item bookNowBtn"><i class="fas fa-calendar-plus"></i>+ Appt. / Payment</a></li>
             <li><a href="index.html" class="nav-item"><i class="fa fa-internet-explorer"></i> Website</a></li>
         </ul>
         <div class="logout-item">
@@ -64,13 +63,13 @@
                 <i class="fas fa-calendar-check"></i>
                 <h3>Book Appointment</h3>
                 <p>Schedule your next salon, spa or gym session</p>
-                <a href="booking_form.html" class="action-btn">Book Now →</a>
+                <a href="#" class="action-btn bookNowBtn">Book Now →</a>
             </div>
             <div class="action-card">
                 <i class="fas fa-clock"></i>
-                <h3>View Upcoming</h3>
-                <p>Check your upcoming bookings & status</p>
-                <a href="booking.html" class="action-btn">View Bookings →</a>
+                <h3>View Payments</h3>
+                <p>Check your payments & statuses</p>
+                <a href="PaymentDashboard.html" class="action-btn">View Payments →</a>
             </div>
         </div>
 
@@ -105,7 +104,7 @@
                     </tbody>
                 </table>
                 <div style="margin-top: 12px; text-align: right;">
-                    <a href="booking.html" class="card-link">Manage all bookings →</a>
+                    <a href="BookingDashboard.html" class="card-link">Manage all bookings →</a>
                 </div>
             </div>
 
@@ -116,7 +115,7 @@
                 <div class="past-item"><span>💅 Manicure & Paraffin Wax</span><span>25 Aug 2023</span></div>
                 <div class="past-item"><span>🏋️‍♀️ HIIT Session (Gym)</span><span>14 July 2023</span></div>
                 <div class="past-item"><span>🌸 Aromatherapy Massage</span><span>02 June 2023</span></div>
-                <div style="margin-top: 12px;"><a href="payment.html" class="card-link">View full history →</a></div>
+                <div style="margin-top: 12px;"><a href="PaymentDashboard.html" class="card-link">View full history →</a></div>
             </div>
         </div>
 
@@ -181,79 +180,6 @@
     </div>
 </div>
 
-<!-- SCRIPTS -->
-<!-- SCRIPTS -->
-<script>
-    // --- SIDEBAR TOGGLE LOGIC ---
-    const toggleSidebarBtn = document.getElementById('toggleSidebar');
-    const openMobileSidebarBtn = document.getElementById('openMobileSidebar');
-    const dashboardWrapper = document.querySelector('.dashboard-wrapper');
-
-    // Desktop Toggle
-    if (toggleSidebarBtn) {
-        toggleSidebarBtn.addEventListener('click', () => {
-            dashboardWrapper.classList.toggle('sidebar-collapsed');
-        });
-    }
-
-    // Mobile Toggle
-    if (openMobileSidebarBtn) {
-        openMobileSidebarBtn.addEventListener('click', () => {
-            dashboardWrapper.classList.toggle('mobile-sidebar-active');
-        });
-    }
-
-    // Click outside to close mobile sidebar
-    document.addEventListener('click', (e) => {
-        if (window.innerWidth <= 900) {
-            const sidebar = document.querySelector('.sidebar');
-            if (dashboardWrapper.classList.contains('mobile-sidebar-active') && 
-                !sidebar.contains(e.target) && 
-                !openMobileSidebarBtn.contains(e.target)) {
-                dashboardWrapper.classList.remove('mobile-sidebar-active');
-            }
-        }
-    });
-
-    // --- LOGOUT MODAL LOGIC ---
-    const logoutBtnSidebar = document.querySelector('.log-out-btn-sidebar');
-    const logoutModal = document.getElementById('logoutModal');
-    const confirmLogout = document.getElementById('confirmLogout');
-    const cancelLogout = document.getElementById('cancelLogout');
-
-    // Modal show karne ke liye
-    if (logoutBtnSidebar) {
-        logoutBtnSidebar.addEventListener('click', (e) => {
-            e.preventDefault(); 
-            logoutModal.classList.add('show');
-        });
-    }
-
-    // Modal close karne ke liye ('No, Stay' button)
-    if (cancelLogout) {
-        cancelLogout.addEventListener('click', () => {
-            logoutModal.classList.remove('show');
-        });
-    }
-
-    // Click outside modal to close
-    if (logoutModal) {
-        logoutModal.addEventListener('click', (e) => {
-            if (e.target === logoutModal) {
-                logoutModal.classList.remove('show');
-            }
-        });
-    }
-
-    // Real Action ('Yes, Log Out' button)
-if (confirmLogout) {
-    confirmLogout.addEventListener('click', () => {
-        alert('Logging out...'); 
-        logoutModal.classList.remove('show');
-        window.location.href = 'index.html'; 
-    });
-}
-    
-</script>
+<script src="Dashboard.js"></script>    
 </body>
 </html>
