@@ -16,6 +16,11 @@ body {
     color: #2c2c2c;
 }
 
+.mobile-nav-bar {
+    display: none;
+}
+
+
 /* === DASHBOARD LAYOUT (CSS Grid) === */
 .dashboard-wrapper {
     display: grid;
@@ -583,7 +588,15 @@ body {
 /* 2. MOBILE MODE (Glow & Fit Mobile Header aur Drawer Logic) */
 @media (max-width: 900px) {
     .mobile-nav-bar {
-        display: flex !important; 
+        display: flex !important;
+		justify-content: space-between;
+        align-items: center;
+    }
+
+	.mobile-toggle-btn {
+        display: flex !important;
+        align-items: center;
+        gap: 8px;
     }
 
     .sidebar {
@@ -641,6 +654,11 @@ body {
 .mobile-logo span {
     color: #b76e79;
     margin: 0 2px;
+}
+
+.mobile-nav-bar,
+.mobile-toggle-btn {
+    display: none;
 }
 
 /* 4. Mobile Top Bar ki styling (Spacing theek karne ke liye) */
