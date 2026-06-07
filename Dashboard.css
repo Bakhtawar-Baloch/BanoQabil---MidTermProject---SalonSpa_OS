@@ -16,10 +16,6 @@ body {
     color: #2c2c2c;
 }
 
-.mobile-nav-bar {
-    display: none;
-}
-
 
 /* === DASHBOARD LAYOUT (CSS Grid) === */
 .dashboard-wrapper {
@@ -701,8 +697,7 @@ body {
         transition: all 0.3s ease;
     }
 
-	.mobile-nav-bar,
-	.mobile-toggle-btn {
+	.mobile-nav-bar {
     	display: none;
 	}
 
