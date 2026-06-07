@@ -656,10 +656,6 @@ body {
     margin: 0 2px;
 }
 
-.mobile-nav-bar,
-.mobile-toggle-btn {
-    display: none;
-}
 
 /* 4. Mobile Top Bar ki styling (Spacing theek karne ke liye) */
 @media (max-width: 900px) {
@@ -675,6 +671,7 @@ body {
         top: 0;
         z-index: 1000;
     }
+
 }
 
 @media (max-width: 480px){
@@ -703,6 +700,11 @@ body {
         margin-bottom: 1.5rem !important;
         transition: all 0.3s ease;
     }
+
+	.mobile-nav-bar,
+	.mobile-toggle-btn {
+    	display: none;
+	}
 
     /* Logo ke andar wale '&' span ko bhi hide karne ke liye */
     .dashboard-wrapper.sidebar-collapsed .sidebar-logo span {
