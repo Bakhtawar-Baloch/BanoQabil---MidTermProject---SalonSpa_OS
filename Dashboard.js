@@ -1,4 +1,3 @@
-
 // ==============================
 // MODAL SELECTION (Class-Based)
 // ==============================
@@ -77,7 +76,7 @@ const dashboardWrapper = document.querySelector('.dashboard-wrapper');
 if (toggleSidebarBtn) {
     toggleSidebarBtn.addEventListener('click', () => {
         dashboardWrapper.classList.toggle('sidebar-collapsed');
-	});
+    });
 }
 
 // Mobile Toggle
@@ -138,3 +137,21 @@ if (confirmLogout) {
         window.location.href = 'index.html'; 
     });
 }
+
+// --- NEW CODE ADDED AT THE END ---
+document.addEventListener("DOMContentLoaded", () => {
+    const storedName = localStorage.getItem("userName");
+
+    const welcomeNameElement = document.getElementById("dynamic-user-name");
+    const profileNameElement = document.getElementById("dynamic-profile-name");
+
+    if (storedName && storedName.trim() !== "") {
+        welcomeNameElement.textContent = storedName;
+
+        const firstName = storedName.split(" ")[0];
+        profileNameElement.textContent = firstName + ".";
+    } else {
+        welcomeNameElement.textContent = "Valued Member";
+        profileNameElement.textContent = "Guest";
+    }
+});
