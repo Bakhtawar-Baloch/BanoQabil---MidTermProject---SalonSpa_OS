@@ -44,7 +44,7 @@
         <!-- Dashboard Header -->
         <div class="dashboard-header">
             <div class="welcome-area">
-                <h1>Welcome, Sophia Reynolds</h1>
+               <h1>Welcome, <span id="dynamic-user-name">Sophia Reynolds</span></h1>
                 <p><i class="fas fa-star-of-life"></i> Your wellness journey awaits</p>
             </div>
             <div class="profile-section">
@@ -52,7 +52,7 @@
                     <i class="fas fa-spa"></i>
                 </div>
                 <div class="profile-info">
-                    <h4>Sophia R.</h4>
+                   <h4 id="dynamic-profile-name">Sophia R.</h4>
                     <span>Admin Account</span>
                 </div>
                 <i class="fas fa-chevron-down" style="color:#b76e79; font-size: 0.8rem;"></i>
@@ -207,10 +207,10 @@
         	<form action="BookingDashboard.html" class="modal-form">
 
             		<!-- Client -->
-            		<div class="input-group">
-                		<label>Client Name</label>
-                		<input type="text" placeholder="Client Full Name">
-            		</div>
+            	<div class="input-group">
+    <label>Client Name</label>
+    <input type="text" id="form-client-name" placeholder="Client Full Name">
+</div>
 
             		<!-- Dates -->
             		<div class="row">
