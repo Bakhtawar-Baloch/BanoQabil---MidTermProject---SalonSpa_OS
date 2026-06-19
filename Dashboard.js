@@ -42,30 +42,78 @@ function closeBookingModal() {
 // TOTAL CHARGES CALCULATOR
 // ==============================
 
-const priceInput = document.getElementById('Price');
-const quantityInput = document.getElementById('Quantity');
-const totalDisplay = document.getElementById('Total');
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Your original element selectors
+    const priceInput = document.getElementById('Price');
+    const quantityInput = document.getElementById('Quantity');
+    const totalDisplay = document.getElementById('Total');
+    const bookingForm = document.getElementById('bookingForm');
 
-if (priceInput && quantityInput) {
+    // 2. Your original event listener check logic
+    if (priceInput && quantityInput) {
+        priceInput.addEventListener('input', calculateTotal);
+        quantityInput.addEventListener('input', calculateTotal);
+    }
 
-    priceInput.addEventListener('input', calculateTotal);
-    quantityInput.addEventListener('input', calculateTotal);
+    // 3. Your original calculation function (completely unchanged)
+    function calculateTotal() {
+        const price = parseFloat(priceInput.value) || 0;
+        const quantity = parseInt(quantityInput.value) || 0;
+        const total = price * quantity;
+        totalDisplay.textContent = total.toFixed(2);
+    }
 
-}
+    // 4. New helper function: Updates your old inputs based on checked services
+    function updateSummaryInputs() {
+        let combinedPrice = 0;
+        let combinedQuantity = 0;
 
-function calculateTotal() {
+        const serviceItems = bookingForm.querySelectorAll('.service-item');
 
-    const price =
-        parseFloat(priceInput.value) || 0;
+        serviceItems.forEach(item => {
+            const checkbox = item.querySelector('.service-checkbox');
+            const qtyInput = item.querySelector('.service-qty');
 
-    const quantity =
-        parseInt(quantityInput.value) || 0;
+            if (checkbox.checked) {
+                qtyInput.disabled = false; // Unlocks input if checked
 
-    const total = price * quantity;
+                const itemPrice = parseFloat(checkbox.getAttribute('data-price')) || 0;
+                const itemQuantity = parseInt(qtyInput.value) || 1; // Default to 1 if empty
 
-    totalDisplay.textContent =
-        total.toFixed(2);
-}
+                combinedPrice += itemPrice;
+                combinedQuantity += itemQuantity;
+            } else {
+                qtyInput.disabled = true;  // Locks input if unchecked
+                qtyInput.value = 1;        // Resets quantity back to baseline
+            }
+        });
+
+        // Push values into your original inputs
+        priceInput.value = combinedPrice > 0 ? combinedPrice : '';
+        quantityInput.value = combinedQuantity > 0 ? combinedQuantity : '';
+
+        // Manually trigger your original calculation function
+        calculateTotal();
+    }
+
+    // 5. Event listener to run everything when checkboxes or quantities change
+    bookingForm.addEventListener('input', (e) => {
+        if (e.target.classList.contains('service-checkbox') || e.target.classList.contains('service-qty')) {
+            updateSummaryInputs();
+        }
+    });
+
+    bookingForm.addEventListener('change', (e) => {
+        if (e.target.classList.contains('service-checkbox') || e.target.classList.contains('service-qty')) {
+            updateSummaryInputs();
+        }
+    });
+});
+
+
+
+
+
 
 // --- SIDEBAR TOGGLE LOGIC ---
 const toggleSidebarBtn = document.getElementById('toggleSidebar');
