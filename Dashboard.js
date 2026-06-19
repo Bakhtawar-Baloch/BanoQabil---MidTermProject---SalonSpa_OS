@@ -314,7 +314,17 @@ function loadBookings() {
             <td>${booking.clientName}</td>
             <td><span class="service-badge">${booking.serviceType}</span></td>
             <td>${booking.service}</td>
-            <td>${booking.appointmentStatus}</td>
+            
+            <td><span class="${
+            booking.appointmentStatus === "Completed"
+                ? "status-confirmed"
+                : booking.appointmentStatus === "Cancelled"
+                ? "status-cancelled"
+                : "status-pending"
+        }">
+            ${booking.appointmentStatus}
+            </span></td>
+            
             <td>$${booking.total}</td>
             <td>${booking.quantity}</td>
             <td>${booking.createDate}</td>
@@ -329,50 +339,10 @@ loadBookings();
 
 
 
-// ====================================================
-// Display Records in Payment Dashboard - Bakhtawar
-// ====================================================
-
-
-function loadPayments() {
-
-    const paymentTable =
-        document.getElementById(
-            "paymentTableBody"
-        );
-
-    if (!paymentTable) return;
-
-    const bookings =
-        JSON.parse(
-            localStorage.getItem("bookings")
-        ) || [];
-
-    bookings.forEach(booking => {
-
-        const row = document.createElement("tr");
-
-        row.innerHTML = `
-            <td><input type="checkbox"></td>
-            <td>${booking.clientName}</td>
-            <td><span class="service-badge">${booking.serviceType}</span></td>
-            <td>${booking.service}</td>
-            <td>${booking.paymentStatus}</td>
-            <td>$${booking.total}</td>
-            <td>${booking.quantity}</td>
-            <td>${booking.createDate}</td>
-            <td>${booking.paymentDate}</td>
-        `;
-
-        paymentTable.appendChild(row);
-    });
-}
-
-loadPayments();
 
 
 // ================================================================
-// Display Records in Dashboard (Upcoming Appointment) - Bakhtawar
+// Display Records in Dashboard (Recent Appointments) - Bakhtawar
 // ================================================================
 
 
@@ -428,3 +398,122 @@ document.addEventListener(
     "DOMContentLoaded",
     loadRecentBookings
 );
+
+
+
+
+// ====================================================
+// Display Records in Payment Dashboard - Bakhtawar
+// ====================================================
+
+
+function loadPayments() {
+
+    const paymentTable =
+        document.getElementById(
+            "paymentTableBody"
+        );
+
+    if (!paymentTable) return;
+
+    const bookings =
+        JSON.parse(
+            localStorage.getItem("bookings")
+        ) || [];
+
+    bookings.forEach(booking => {
+
+        const row = document.createElement("tr");
+
+        row.innerHTML = `
+            <td><input type="checkbox"></td>
+            <td>${booking.clientName}</td>
+
+            <td><span class="service-badge">${booking.serviceType}</span></td>
+
+            <td>${booking.service}</td>
+
+            <td><span class="${
+                booking.paymentStatus === "Received"
+                    ? "status-confirmed"
+                    : "status-pending"
+            }">
+                ${booking.paymentStatus}
+            </span></td>
+
+            <td>$${booking.total}</td>
+            <td>${booking.quantity}</td>
+            <td>${booking.createDate}</td>
+            <td>${booking.paymentDate}</td>
+        `;
+
+        paymentTable.appendChild(row);
+    });
+}
+
+loadPayments();
+
+
+// ====================================================
+// Dashboard Recent Payments Widget
+// Shows Last 3 Payments Only
+// ====================================================
+
+function loadRecentPayments() {
+
+    const paymentTable =
+        document.getElementById(
+            "recentPaymentTableBody"
+        );
+
+    if (!paymentTable) return;
+
+    paymentTable.innerHTML = "";
+
+    const bookings =
+        JSON.parse(
+            localStorage.getItem("bookings")
+        ) || [];
+
+    // Sort newest first
+
+    const recentPayments =
+        bookings
+            .sort((a, b) => b.id - a.id)
+            .slice(0, 3);
+
+    recentPayments.forEach(payment => {
+
+        let statusClass =
+            "status-pending";
+
+        if (
+            payment.paymentStatus ===
+            "Received"
+        ) {
+            statusClass =
+                "status-confirmed";
+        }
+
+        const row =
+            document.createElement("tr");
+
+        row.innerHTML = `
+            <td>${payment.paymentDate || "-"}</td>
+
+            <td>${payment.service}</td>
+
+            <td>$${payment.total}</td>
+
+            <td>
+                <span class="${statusClass}">
+                    ${payment.paymentStatus}
+                </span>
+            </td>
+        `;
+
+        paymentTable.appendChild(row);
+    });
+}
+
+loadRecentPayments();
