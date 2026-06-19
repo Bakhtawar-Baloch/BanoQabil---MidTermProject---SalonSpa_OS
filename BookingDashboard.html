@@ -77,12 +77,12 @@
 
         <!-- Dashboard Full Width Columns -->
         <div class="full-width-card">
-            <!-- Upcoming Appointments Table -->
-            <div class="info-card table-wrapper">
-                <h3><i class="far fa-calendar-alt"></i>My Bookings</h3>
-                <table class="appointments-table">
-		<thead>			
-			<tr>
+        <!-- Upcoming Appointments Table -->
+        <div class="info-card table-wrapper">
+            <h3><i class="far fa-calendar-alt"></i>My Bookings</h3>
+            <table class="appointments-table">
+			<thead>			
+				<tr>
 				<th><input type="checkbox"></th>
 				<th>Client Name</th>
 				<th> </th>
@@ -92,14 +92,14 @@
 				<th>Qty.</th>
 				<th>Create Date</th>
 				<th>Appt. Date</th>
-			</tr>
-		</thead>
+				</tr>
+			</thead>
                     
-		<tbody id="bookingTableBody"></tbody>
+			<tbody id="bookingTableBody"></tbody>
         
-		</table>
+			</table>
                 
-		<div style="margin-top: 12px; text-align: right;">
+			<div style="margin-top: 12px; text-align: right;">
                     <a href="BookingDashboard.html" class="card-link">View all bookings 🎀👇</a></div>
         </div>
 		</div>
@@ -172,44 +172,41 @@
 
             		<!-- Services -->
 					
-            		<div class="service-section">
+            	<div class="service-section">
+    				<h4>Services Requested</h4>
+    				<div class="service-item">
+        				<label><input type="checkbox" class="service-checkbox" data-price="100">Haircut ($100)</label>
+        				<input type="number" class="service-qty" placeholder="Qty" min="1" value="1" disabled>
+    				</div>
 
-                	<h4>Services Requested</h4>
+    				<div class="service-item">
+        				<label><input type="checkbox" class="service-checkbox" data-price="105">Sauna Therapy ($105)</label>
+        				<input type="number" class="service-qty" placeholder="Qty" min="1" value="1" disabled>
+    				</div>
 
-                	<div class="service-item">
-                    		<label><input type="checkbox">Haircut</label>
-                    		<input type="number" placeholder="Qty">
-                	</div>
+    				<div class="service-item">
+        				<label><input type="checkbox" class="service-checkbox" data-price="105">Red Light Therapy ($105)</label>
+        				<input type="number" class="service-qty" placeholder="Qty" min="1" value="1" disabled>
+    				</div>
 
-                	<div class="service-item">
-                    		<label><input type="checkbox">Sauna Therapy</label>
-                    		<input type="number" placeholder="Qty">
-                	</div>
+    				<div class="service-item">
+        				<label><input type="checkbox" class="service-checkbox" data-price="115">Facial Treatment ($115)</label>
+        				<input type="number" class="service-qty" placeholder="Qty" min="1" value="1" disabled>
+    				</div>
 
-                	<div class="service-item">
-                    		<label><input type="checkbox">Red Light Therapy</label>
-                    		<input type="number" placeholder="Qty">
-                	</div>
-			
-					<div class="service-item">
-                    		<label><input type="checkbox">Facial Treatment</label>
-                    		<input type="number" placeholder="Qty">
-                	</div>
+    				<div class="service-item">
+        				<label><input type="checkbox" class="service-checkbox" data-price="500">Gym Subscription - Quarterly ($500)</label>
+        				<input type="number" class="service-qty" placeholder="Qty" min="1" value="1" disabled>
+    				</div>
 
-					<div class="service-item">
-                    		<label><input type="checkbox">Gym Subscription - Quarterly</label>
-                    		<input type="number" placeholder="Qty">
-                	</div>
-
-					<div class="service-item">
-                    		<label><input type="checkbox">Aerobic Subscription - Quarterly</label>
-                    		<input type="number" placeholder="Qty">
-                	</div>
-
-
-            		</div>
-
-            		<!-- Statuses -->
+    				<div class="service-item">
+        				<label><input type="checkbox" class="service-checkbox" data-price="500">Aerobic Subscription - Quarterly ($500)</label>
+        				<input type="number" class="service-qty" placeholder="Qty" min="1" value="1" disabled>
+    				</div>
+				</div>
+            		
+				
+				<!-- Statuses -->
 
             		<div class="row">
 
