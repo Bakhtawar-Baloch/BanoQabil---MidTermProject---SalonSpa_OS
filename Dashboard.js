@@ -222,15 +222,17 @@ document.addEventListener("DOMContentLoaded", () => {
                             .trim();
                     
                     // Determine category
+
+                    let serviceType = "";
                     if (
-                        selectedService.includes("Haircut")
-                        electedService.includes("Facial Treatment")
+                        selectedService.includes("Haircut") ||
+                        selectedService.includes("Facial Treatment")
                         ) {
                         serviceType = "SALON";
                     }
                     else if (
                         selectedService.includes("Sauna") ||
-                        selectedService.includes("Red Light") ||
+                        selectedService.includes("Red Light")
                         ) {
                         serviceType = "SPA";
                     }
