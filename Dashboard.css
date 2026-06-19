@@ -250,7 +250,7 @@ body {
 /* Dashboard Grid */
 .dashboard-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(2, 1fr); /* Forces exactly 2 equal columns */
     gap: 24px;
     margin-top: 2rem;
 	margin-bottom: 2rem;
