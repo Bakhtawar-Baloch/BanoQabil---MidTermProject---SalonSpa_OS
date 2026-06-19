@@ -81,30 +81,12 @@
                 <h3><i class="far fa-calendar-alt"></i> Upcoming Appointments</h3>
                 <table class="appointments-table">
                     <thead>
-                        <tr><th>Date</th><th>Time</th><th>Service</th><th>Status</th></tr>
+                        <tr><th>Date</th><th>Client</th><th>Service</th><th>Status</th></tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>15 Oct 2023</td>
-                            <td>2:00 PM</td>
-                            <td>Massage Therapy</td>
-                            <td><span class="status-badge">Confirmed</span></td>
-                        </tr>
-                        <tr>
-                            <td>22 Oct 2023</td>
-                            <td>10:00 AM</td>
-                            <td>Haircut & Styling</td>
-                            <td><span class="status-badge status-pending">Pending</span></td>
-                        </tr>
-                        <tr>
-                            <td>05 Nov 2023</td>
-                            <td>4:30 PM</td>
-                            <td>Personal Training</td>
-                            <td><span class="status-badge">Confirmed</span></td>
-                        </tr>
+                    <tbody id="recentBookingTableBody">
                     </tbody>
                 </table>
-                <div style="margin-top: 12px; text-align: right;">
+                <div style="margin-top: 12px; text-align: right;" class="view-all-link">
                     <a href="BookingDashboard.html" class="card-link">Manage all bookings →</a>
                 </div>
             </div>
@@ -197,7 +179,7 @@
             			<p>Register New Payment / Book New Appointment</p>
         		</div>
 
-        	<form action="BookingDashboard.html" class="modal-form" id="bookingForm">
+        	<form action="Dashboard.html" class="modal-form" id="bookingForm">
             		<!-- Client -->
             		<div class="input-group">
                 		<label>Client Name</label>
