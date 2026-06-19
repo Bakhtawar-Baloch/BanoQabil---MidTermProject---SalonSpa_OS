@@ -369,3 +369,62 @@ function loadPayments() {
 }
 
 loadPayments();
+
+
+// ================================================================
+// Display Records in Dashboard (Upcoming Appointment) - Bakhtawar
+// ================================================================
+
+
+function loadRecentBookings() {
+
+    const tableBody =
+        document.getElementById(
+            "recentBookingTableBody"
+        );
+
+    if (!tableBody) return;
+
+    tableBody.innerHTML = "";
+
+    const bookings =
+        JSON.parse(
+            localStorage.getItem("bookings")
+        ) || [];
+
+    const latestThree =
+        bookings
+            .sort((a, b) => b.id - a.id)
+            .slice(0, 3);
+
+    latestThree.forEach(booking => {
+
+        const statusClass =
+            booking.appointmentStatus === "Completed"
+                ? "status-confirmed"
+                : booking.appointmentStatus === "Cancelled"
+                ? "status-cancelled"
+                : "status-pending";
+
+        tableBody.innerHTML += `
+            <tr>
+                <td>${booking.appointmentDate}</td>
+
+                <td>${booking.clientName}</td>
+
+                <td>${booking.service}</td>
+
+                <td>
+                    <span class="${statusClass}">
+                        ${booking.appointmentStatus}
+                    </span>
+                </td>
+            </tr>
+        `;
+    });
+}
+
+document.addEventListener(
+    "DOMContentLoaded",
+    loadRecentBookings
+);
