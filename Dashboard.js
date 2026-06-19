@@ -155,3 +155,190 @@ document.addEventListener("DOMContentLoaded", () => {
         profileNameElement.textContent = "Guest";
     }
 });
+
+
+// ==================================================================================
+// Form JS to display entries saved on the Booking and Payment Dashboard - Bakhtawar
+// ==================================================================================
+
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const bookingForm = document.getElementById("bookingForm");
+
+    if (!bookingForm) return;
+
+    bookingForm.addEventListener("submit", function(e) {
+
+        e.preventDefault();
+
+        const clientName =
+            document.getElementById("form-client-name").value;
+
+        const createDate =
+            document.getElementById("createDate").value;
+
+        const appointmentDate =
+            document.getElementById("appointmentDate").value;
+
+        const paymentDate =
+            document.getElementById("paymentDate").value;
+
+        const price =
+            Number(document.getElementById("Price").value) || 0;
+
+        const quantity =
+            Number(document.getElementById("Quantity").value) || 1;
+
+        const total = price * quantity;
+
+        const paymentStatus =
+            document.querySelector(
+                'input[name="payment"]:checked'
+            )?.value || "Pending";
+
+        const appointmentStatus =
+            document.querySelector(
+                'input[name="appointment"]:checked'
+            )?.value || "Upcoming";
+
+        // Selected Service
+        let selectedService = "General Service";
+
+        document
+            .querySelectorAll(".service-item")
+            .forEach(item => {
+
+                const checkbox =
+                    item.querySelector(
+                        'input[type="checkbox"]'
+                    );
+
+                if (checkbox.checked) {
+
+                    selectedService =
+                        item.querySelector("label")
+                            .innerText
+                            .trim();
+                }
+            });
+
+        const booking = {
+
+            id: Date.now(),
+
+            clientName,
+            createDate,
+            appointmentDate,
+            paymentDate,
+
+            service: selectedService,
+
+            appointmentStatus,
+            paymentStatus,
+
+            price,
+            quantity,
+            total
+        };
+
+        const bookings =
+            JSON.parse(
+                localStorage.getItem("bookings")
+            ) || [];
+
+        bookings.push(booking);
+
+        localStorage.setItem(
+            "bookings",
+            JSON.stringify(bookings)
+        );
+
+        alert("Appointment booked successfully!");
+
+        bookingForm.reset();
+
+        location.reload();
+    });
+});
+
+
+// ====================================================
+// Display Records in Booking Dashboard - Bakhtawar
+// ====================================================
+
+
+function loadBookings() {
+
+    const tableBody =
+        document.getElementById(
+            "bookingTableBody"
+        );
+
+    if (!tableBody) return;
+
+    const bookings =
+        JSON.parse(
+            localStorage.getItem("bookings")
+        ) || [];
+
+    bookings.forEach(booking => {
+
+        const row = document.createElement("tr");
+
+        row.innerHTML = `
+            <td><input type="checkbox"></td>
+            <td>${booking.clientName}</td>
+            <td><span class="service-badge">SERVICE</span></td>
+            <td>${booking.service}</td>
+            <td>${booking.appointmentStatus}</td>
+            <td>$${booking.total}</td>
+            <td>${booking.quantity}</td>
+            <td>${booking.createDate}</td>
+            <td>${booking.appointmentDate}</td>
+        `;
+
+        tableBody.appendChild(row);
+    });
+}
+
+loadBookings();
+
+
+
+// ====================================================
+// Display Records in Payment Dashboard - Bakhtawar
+// ====================================================
+
+
+function loadPayments() {
+
+    const paymentTable =
+        document.getElementById(
+            "paymentTableBody"
+        );
+
+    if (!paymentTable) return;
+
+    const bookings =
+        JSON.parse(
+            localStorage.getItem("bookings")
+        ) || [];
+
+    bookings.forEach(booking => {
+
+        const row = document.createElement("tr");
+
+        row.innerHTML = `
+            <td>${booking.clientName}</td>
+            <td>${booking.service}</td>
+            <td>$${booking.total}</td>
+            <td>${booking.paymentStatus}</td>
+            <td>${booking.paymentDate}</td>
+        `;
+
+        paymentTable.appendChild(row);
+    });
+}
+
+loadPayments();
