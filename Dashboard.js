@@ -220,6 +220,26 @@ document.addEventListener("DOMContentLoaded", () => {
                         item.querySelector("label")
                             .innerText
                             .trim();
+                    
+                    // Determine category
+                    if (
+                        selectedService.includes("Haircut")
+                        electedService.includes("Facial Treatment")
+                        ) {
+                        serviceType = "SALON";
+                    }
+                    else if (
+                        selectedService.includes("Sauna") ||
+                        selectedService.includes("Red Light") ||
+                        ) {
+                        serviceType = "SPA";
+                    }
+                    else if (
+                        selectedService.includes("Gym Subscription") ||
+                        selectedService.includes("Aerobic")
+                        ) {
+                        serviceType = "GYM";
+                    }
                 }
             });
 
@@ -232,6 +252,7 @@ document.addEventListener("DOMContentLoaded", () => {
             appointmentDate,
             paymentDate,
 
+            serviceType,
             service: selectedService,
 
             appointmentStatus,
@@ -289,7 +310,7 @@ function loadBookings() {
         row.innerHTML = `
             <td><input type="checkbox"></td>
             <td>${booking.clientName}</td>
-            <td><span class="service-badge">SERVICE</span></td>
+            <td><span class="service-badge">${booking.serviceType}</span></td>
             <td>${booking.service}</td>
             <td>${booking.appointmentStatus}</td>
             <td>$${booking.total}</td>
@@ -330,10 +351,14 @@ function loadPayments() {
         const row = document.createElement("tr");
 
         row.innerHTML = `
+            <td><input type="checkbox"></td>
             <td>${booking.clientName}</td>
+            <td><span class="service-badge">${booking.serviceType}</span></td>
             <td>${booking.service}</td>
-            <td>$${booking.total}</td>
             <td>${booking.paymentStatus}</td>
+            <td>$${booking.total}</td>
+            <td>${booking.quantity}</td>
+            <td>${booking.createDate}</td>
             <td>${booking.paymentDate}</td>
         `;
 
