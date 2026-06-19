@@ -181,9 +181,14 @@
     </div>
 </div>
 
+
+	
 <!-- NEW BOOKING FORM + Calculator --->
 <!-- NEW BOOKING FORM + Calculator --->
 
+
+
+	
 <div class="login-overlay" id="loginModal">
     		<div class="booking-modal">
         		<span class="close-btn" id="closeModal">&times;</span>
@@ -192,7 +197,7 @@
             			<p>Register New Payment / Book New Appointment</p>
         		</div>
 
-        	<form action="BookingDashboard.html" class="modal-form">
+        	<form action="BookingDashboard.html" class="modal-form" id="bookingForm">
             		<!-- Client -->
             		<div class="input-group">
                 		<label>Client Name</label>
@@ -203,17 +208,17 @@
             		<div class="row">
                 		<div class="input-group">
                     		<label>Create Date</label>
-                    		<input type="date">
+                    		<input type="date" id="createDate">
                 	    </div>
 
                 	    <div class="input-group">
                     		<label>Appointment Date</label>
-                    		<input type="date">
+                    		<input type="date" id="appointmentDate">
                 	    </div>
 						
 						<div class="input-group">
                     		<label>Payment Date</label>
-                    		<input type="date">
+                    		<input type="date" id="paymentDate">
                 	    </div>
             		</div>
 
@@ -258,15 +263,15 @@
             		<div class="row">
                 	<div class="radio-box">
                     	<h4>Payment Status</h4>
-                    	<label><input type="radio" name="payment"> Received</label>
-       				    <label><input type="radio" name="payment"> Pending</label>
+                    	<label><input type="radio" name="payment" value="Received"> Received</label>
+       				    <label><input type="radio" name="payment" value="Pending"> Pending</label>
                 	</div>
 
                 	<div class="radio-box">
                     	<h4>Appointment Status</h4>
-                    	<label><input type="radio" name="appointment"> Upcoming</label>
-                    	<label><input type="radio" name="appointment"> Completed</label>
-                    	<label><input type="radio" name="appointment"> Cancelled</label>
+                    	<label><input type="radio" name="appointment" value="Upcoming"> Upcoming</label>
+                    	<label><input type="radio" name="appointment" value="Completed"> Completed</label>
+                    	<label><input type="radio" name="appointment" value="Cancelled"> Cancelled</label>
                 	</div>
 
            	 	    </div>
@@ -294,7 +299,7 @@
 
             		</div>
 
-            		<button class="btn-submit">Book Appointment</button>
+            		<button type="submit" class="btn-submit">Submit</button>
 
         	</form>
     		</div>
