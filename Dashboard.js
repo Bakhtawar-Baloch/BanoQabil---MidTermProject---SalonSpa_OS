@@ -204,6 +204,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Selected Service
         let selectedService = "General Service";
+        let serviceType = "";
 
         document
             .querySelectorAll(".service-item")
@@ -223,7 +224,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     
                     // Determine category
 
-                    let serviceType = "";
                     if (
                         selectedService.includes("Haircut") ||
                         selectedService.includes("Facial Treatment")
