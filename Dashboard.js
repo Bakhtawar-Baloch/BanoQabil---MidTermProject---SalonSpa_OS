@@ -342,38 +342,3 @@ function loadPayments() {
 }
 
 loadPayments();
-
-
-
-
-const serviceType =
-    document.getElementById("serviceType").value;
-
-services: [
-   {
-      category: "SALON",
-      name: "Haircut"
-   },
-
-   {
-      category: "SALON",
-      name: "Facial Treatment"
-   },
-
-  {
-      category: "SPA",
-      name: "Red Light Therapy"
-   },
-
-
-   {
-      category: "SPA",
-      name: "Sauna"
-   },
-
-  {
-      category: "GYM",
-      name: "Gym Subscription - Quarterly"
-   },
-
-]
