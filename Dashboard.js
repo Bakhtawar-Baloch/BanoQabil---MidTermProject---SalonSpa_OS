@@ -437,7 +437,9 @@ function loadPayments() {
             <td><span class="${
                 booking.paymentStatus === "Received"
                     ? "status-confirmed"
-                    : "status-pending"
+                    : booking.paymentStatus === "Cancelled"
+                    ? "status-cancelled"
+                    : "status-pending";
             }">
                 ${booking.paymentStatus}
             </span></td>
@@ -494,6 +496,10 @@ function loadRecentPayments() {
         ) {
             statusClass =
                 "status-confirmed";
+        }
+
+        else if (payment.paymentStatus === "Cancelled") {
+        statusClass = "status-cancelled";
         }
 
         const row =
