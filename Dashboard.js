@@ -43,73 +43,81 @@ function closeBookingModal() {
 // ==============================
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Your original element selectors
+    // 1. Element selectors
     const priceInput = document.getElementById('Price');
     const quantityInput = document.getElementById('Quantity');
     const totalDisplay = document.getElementById('Total');
     const bookingForm = document.getElementById('bookingForm');
 
-    // 2. Your original event listener check logic
-    if (priceInput && quantityInput) {
-        priceInput.addEventListener('input', calculateTotal);
-        quantityInput.addEventListener('input', calculateTotal);
-    }
-
-    // 3. Your original calculation function (completely unchanged)
+    // 2. Main calculator function
     function calculateTotal() {
-        const price = parseFloat(priceInput.value) || 0;
-        const quantity = parseInt(quantityInput.value) || 0;
-        const total = price * quantity;
-        totalDisplay.textContent = total.toFixed(2);
-    }
+        let runningTotal = 0;
+        let combinedPriceSum = 0;
+        let combinedQuantitySum = 0;
 
-    // 4. New helper function: Updates your old inputs based on checked services
-    function updateSummaryInputs() {
-        let combinedPrice = 0;
-        let combinedQuantity = 0;
-
+        // Select every service line container
         const serviceItems = bookingForm.querySelectorAll('.service-item');
 
         serviceItems.forEach(item => {
             const checkbox = item.querySelector('.service-checkbox');
             const qtyInput = item.querySelector('.service-qty');
 
-            if (checkbox.checked) {
-                qtyInput.disabled = false; // Unlocks input if checked
+            if (checkbox && checkbox.checked) {
+                // Ensure field is editable
+                qtyInput.disabled = false; 
 
                 const itemPrice = parseFloat(checkbox.getAttribute('data-price')) || 0;
-                const itemQuantity = parseInt(qtyInput.value) || 1; // Default to 1 if empty
+                const itemQuantity = parseInt(qtyInput.value) || 1; // Fallback to 1 item
 
-                combinedPrice += itemPrice;
-                combinedQuantity += itemQuantity;
-            } else {
-                qtyInput.disabled = true;  // Locks input if unchecked
-                qtyInput.value = 1;        // Resets quantity back to baseline
+                // Accurate mathematical accumulation
+                combinedPriceSum += itemPrice;
+                combinedQuantitySum += itemQuantity;
+                runningTotal += (itemPrice * itemQuantity); // ✅ Fix: Multiplies item rate by its specific quantity
+            } else if (qtyInput) {
+                // Safely lock and reset unselected fields
+                qtyInput.disabled = true;  
+                qtyInput.value = 1;        
             }
         });
 
-        // Push values into your original inputs
-        priceInput.value = combinedPrice > 0 ? combinedPrice : '';
-        quantityInput.value = combinedQuantity > 0 ? combinedQuantity : '';
+        // Update display boxes with cumulative statistics
+        if (priceInput) priceInput.value = combinedPriceSum > 0 ? combinedPriceSum : '';
+        if (quantityInput) quantityInput.value = combinedQuantitySum > 0 ? combinedQuantitySum : '';
 
-        // Manually trigger your original calculation function
-        calculateTotal();
+        // Print final accurate calculated sum to screen
+        if (totalDisplay) {
+            totalDisplay.textContent = runningTotal.toFixed(2);
+        }
     }
 
-    // 5. Event listener to run everything when checkboxes or quantities change
+    // 3. Fallback override listener for manual entry boxes
+    if (priceInput && quantityInput) {
+        priceInput.addEventListener('input', () => {
+            const manualPrice = parseFloat(priceInput.value) || 0;
+            const manualQty = parseInt(quantityInput.value) || 0;
+            if (totalDisplay) totalDisplay.textContent = (manualPrice * manualQty).toFixed(2);
+        });
+        
+        quantityInput.addEventListener('input', () => {
+            const manualPrice = parseFloat(priceInput.value) || 0;
+            const manualQty = parseInt(quantityInput.value) || 0;
+            if (totalDisplay) totalDisplay.textContent = (manualPrice * manualQty).toFixed(2);
+        });
+    }
+
+    // 4. Live form change captures
     bookingForm.addEventListener('input', (e) => {
         if (e.target.classList.contains('service-checkbox') || e.target.classList.contains('service-qty')) {
-            updateSummaryInputs();
+            calculateTotal();
         }
     });
 
     bookingForm.addEventListener('change', (e) => {
         if (e.target.classList.contains('service-checkbox') || e.target.classList.contains('service-qty')) {
-            updateSummaryInputs();
+            calculateTotal();
         }
     });
 });
-
 
 
 
