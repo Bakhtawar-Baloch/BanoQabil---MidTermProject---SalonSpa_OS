@@ -213,7 +213,7 @@ document.addEventListener("DOMContentLoaded", () => {
         e.preventDefault();
 
         // Safe fallbacks to prevent errors if elements are missing
-        const clientNameInput = document.getElementById("form-client-name");
+        const clientNameInput = document.getElementById("clientName");
         const clientName = clientNameInput ? clientNameInput.value : "Unknown Client";
 
         const createDate = document.getElementById("createDate").value;
