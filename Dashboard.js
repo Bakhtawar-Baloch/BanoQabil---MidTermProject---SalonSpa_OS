@@ -439,7 +439,7 @@ function loadPayments() {
                     ? "status-confirmed"
                     : booking.paymentStatus === "Cancelled"
                     ? "status-cancelled"
-                    : "status-pending";
+                    : "status-pending"
             }">
                 ${booking.paymentStatus}
             </span></td>
