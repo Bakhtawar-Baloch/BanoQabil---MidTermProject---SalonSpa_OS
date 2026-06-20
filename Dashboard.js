@@ -212,115 +212,76 @@ document.addEventListener("DOMContentLoaded", () => {
 
         e.preventDefault();
 
-        const clientName =
-            document.getElementById("form-client-name").value;
+        // Safe fallbacks to prevent errors if elements are missing
+        const clientNameInput = document.getElementById("form-client-name");
+        const clientName = clientNameInput ? clientNameInput.value : "Unknown Client";
 
-        const createDate =
-            document.getElementById("createDate").value;
+        const createDate = document.getElementById("createDate").value;
+        const appointmentDate = document.getElementById("appointmentDate").value;
+        const paymentDate = document.getElementById("paymentDate").value;
 
-        const appointmentDate =
-            document.getElementById("appointmentDate").value;
+        const price = Number(document.getElementById("Price").value) || 0;
+        const quantity = Number(document.getElementById("Quantity").value) || 1;
 
-        const paymentDate =
-            document.getElementById("paymentDate").value;
+        // ✅ FIX 1: Read the accurate textContent from the calculated total span node directly
+        const totalDisplayElement = document.getElementById("Total");
+        const total = totalDisplayElement ? parseFloat(totalDisplayElement.textContent) || 0 : price * quantity;
 
-        const price =
-            Number(document.getElementById("Price").value) || 0;
+        const paymentStatus = document.querySelector('input[name="payment"]:checked')?.value || "Pending";
+        const appointmentStatus = document.querySelector('input[name="appointment"]:checked')?.value || "Upcoming";
 
-        const quantity =
-            Number(document.getElementById("Quantity").value) || 1;
+        // ✅ FIX 2: Group multiple selected checkboxes cleanly into a single entry row string
+        let selectedServiceArray = [];
+        let serviceTypeArray = [];
 
-        const total = price * quantity;
+        document.querySelectorAll(".service-item").forEach(item => {
+            const checkbox = item.querySelector('input[type="checkbox"]');
+            const qtyInput = item.querySelector('.service-qty');
 
-        const paymentStatus =
-            document.querySelector(
-                'input[name="payment"]:checked'
-            )?.value || "Pending";
-
-        const appointmentStatus =
-            document.querySelector(
-                'input[name="appointment"]:checked'
-            )?.value || "Upcoming";
-
-        // Selected Service
-        let selectedService = "General Service";
-        let serviceType = "";
-
-        document
-            .querySelectorAll(".service-item")
-            .forEach(item => {
-
-                const checkbox =
-                    item.querySelector(
-                        'input[type="checkbox"]'
-                    );
-
-                if (checkbox.checked) {
-
-                    selectedService =
-                        item.querySelector("label")
-                            .innerText
-                            .trim();
-                    
-                    // Determine category
-
-                    if (
-                        selectedService.includes("Haircut") ||
-                        selectedService.includes("Facial Treatment")
-                        ) {
-                        serviceType = "SALON";
-                    }
-                    else if (
-                        selectedService.includes("Sauna") ||
-                        selectedService.includes("Red Light")
-                        ) {
-                        serviceType = "SPA";
-                    }
-                    else if (
-                        selectedService.includes("Gym Subscription") ||
-                        selectedService.includes("Aerobic")
-                        ) {
-                        serviceType = "GYM";
-                    }
+            if (checkbox && checkbox.checked) {
+                // Read clean labels (e.g., "Haircut")
+                let serviceText = item.querySelector("label").innerText.split('(')[0].trim();
+                let itemQty = qtyInput ? parseInt(qtyInput.value) || 1 : 1;
+                
+                // Format nicely for table display: "Haircut (x3)"
+                selectedServiceArray.push(`${serviceText} (x${itemQty})`);
+                
+                // Categorize badges dynamically
+                if (serviceText.includes("Haircut") || serviceText.includes("Facial Treatment")) {
+                    if (!serviceTypeArray.includes("SALON")) serviceTypeArray.push("SALON");
+                } else if (serviceText.includes("Sauna") || serviceText.includes("Red Light")) {
+                    if (!serviceTypeArray.includes("SPA")) serviceTypeArray.push("SPA");
+                } else if (serviceText.includes("Gym") || serviceText.includes("Aerobic")) {
+                    if (!serviceTypeArray.includes("GYM")) serviceTypeArray.push("GYM");
                 }
-            });
+            }
+        });
+
+        // Join items with commas if multiple are checked
+        const selectedService = selectedServiceArray.length > 0 ? selectedServiceArray.join(", ") : "General Service";
+        const serviceType = serviceTypeArray.length > 0 ? serviceTypeArray.join(" / ") : "UNKNOWN";
 
         const booking = {
-
             id: Date.now(),
-
             clientName,
             createDate,
             appointmentDate,
             paymentDate,
-
             serviceType,
             service: selectedService,
-
             appointmentStatus,
             paymentStatus,
-
             price,
             quantity,
-            total
+            total // Logs accurate fixed price matrix values
         };
 
-        const bookings =
-            JSON.parse(
-                localStorage.getItem("bookings")
-            ) || [];
-
+        const bookings = JSON.parse(localStorage.getItem("bookings")) || [];
         bookings.push(booking);
-
-        localStorage.setItem(
-            "bookings",
-            JSON.stringify(bookings)
-        );
+        localStorage.setItem("bookings", JSON.stringify(bookings));
 
         alert("Appointment booked successfully!");
-
         bookingForm.reset();
-
         location.reload();
     });
 });
