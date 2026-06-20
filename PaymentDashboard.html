@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
+    <!-- SIDEBAR -->
+
 <body>
 <div class="dashboard-wrapper">
     
@@ -30,6 +32,8 @@
         </div>
     </aside>
 
+    <!-- MAIN DASHBOARD -->
+    
     <main class="main-dashboard">
         <div class="mobile-nav-bar">
             <button id="openMobileSidebar" class="mobile-toggle-btn">
@@ -38,6 +42,8 @@
             <div class="mobile-logo">Glow<span>&</span>Fit</div>
         </div>
 
+        <!-- HEADER -->
+        
         <div class="dashboard-header">
             <div class="welcome-area">
                 <h1>Welcome, <span id="dynamic-user-name">Sophia Reynolds</span></h1>
@@ -55,6 +61,8 @@
             </div>
         </div>
 
+        <!-- SECTION 1 OR ROW 1-->
+        
         <div class="quick-actions">
             <div class="action-card">
                 <i class="fas fa-calendar-check"></i>
@@ -70,6 +78,8 @@
             </div>
         </div>
 
+        <!-- PAYMENTS TABLE / DASHBOARD -->
+        
         <div class="full-width-card">
             <div class="info-card table-wrapper">
                 <h3><i class="far fa-calendar-alt"></i>My Payments</h3>
@@ -96,7 +106,9 @@
                     <a href="BookingDashboard.html" class="card-link">View all bookings 🎀👇</a></div>
         </div>
         </div>
-     
+
+        <!-- FOOTER -->
+        
         <div class="dashboard-footer">
             <p>✨ <strong>Sponsored Content:</strong> Discover our new "Summer Glow" package – 20% off for members ✨</p>
             <p>© 2026 Glow & Fit Luxury Services. All Rights Reserved. | Elevate your beauty & fitness</p>
@@ -104,7 +116,7 @@
     </main>
 </div>
 
-
+<!-- LOG OUT -->
 
 <div id="logoutModal" class="modal-overlay">
     <div class="logout-card">
@@ -120,6 +132,7 @@
     </div>
 </div>
 
+    <!-- FORM MODAL OPENS AND CLOSES WITH COMPLETE FORM DETAILS -->
 
 <div class="login-overlay" id="loginModal">
             <div class="booking-modal">
@@ -133,11 +146,14 @@
 
             <form action="PaymentDashboard.html" class="modal-form" id="bookingForm">
 
+                <!-- CLIENT NAME -->
+                
                     <div class="input-group">
                         <label>Client Name</label>
                         <input type="text" id="form-client-name" placeholder="Client Full Name">
                     </div>
 
+                <!-- DATES -->
                     <div class="row">
                         <div class="input-group">
                             <label>Create Date</label>
@@ -155,43 +171,43 @@
                 	     </div>
                     </div>
 
+                    <!-- SERVICES -->
+
                     <div class="service-section">
+    				<h4>Services Requested</h4>
+    				<div class="service-item">
+        				<label><input type="checkbox" class="service-checkbox" data-price="100">Haircut ($100)</label>
+        				<input type="number" class="service-qty" placeholder="Qty" min="1" value="1" disabled>
+    				</div>
 
-                    <h4>Services Requested</h4>
+    				<div class="service-item">
+        				<label><input type="checkbox" class="service-checkbox" data-price="105">Sauna Therapy ($105)</label>
+        				<input type="number" class="service-qty" placeholder="Qty" min="1" value="1" disabled>
+    				</div>
 
-                    <div class="service-item">
-                            <label><input type="checkbox">Haircut</label>
-                            <input type="number" placeholder="Qty">
-                    </div>
+    				<div class="service-item">
+        				<label><input type="checkbox" class="service-checkbox" data-price="105">Red Light Therapy ($105)</label>
+        				<input type="number" class="service-qty" placeholder="Qty" min="1" value="1" disabled>
+    				</div>
 
-                    <div class="service-item">
-                            <label><input type="checkbox">Sauna Therapy</label>
-                            <input type="number" placeholder="Qty">
-                    </div>
+    				<div class="service-item">
+        				<label><input type="checkbox" class="service-checkbox" data-price="115">Facial Treatment ($115)</label>
+        				<input type="number" class="service-qty" placeholder="Qty" min="1" value="1" disabled>
+    				</div>
 
-                    <div class="service-item">
-                            <label><input type="checkbox">Red Light Therapy</label>
-                            <input type="number" placeholder="Qty">
-                    </div>
-            
-            <div class="service-item">
-                            <label><input type="checkbox">Facial Treatment</label>
-                            <input type="number" placeholder="Qty">
-                    </div>
+    				<div class="service-item">
+        				<label><input type="checkbox" class="service-checkbox" data-price="500">Gym Subscription - Quarterly ($500)</label>
+        				<input type="number" class="service-qty" placeholder="Qty" min="1" value="1" disabled>
+    				</div>
 
-            <div class="service-item">
-                            <label><input type="checkbox">Gym Subscription - Quarterly</label>
-                            <input type="number" placeholder="Qty">
-                    </div>
+    				<div class="service-item">
+        				<label><input type="checkbox" class="service-checkbox" data-price="500">Aerobic Subscription - Quarterly ($500)</label>
+        				<input type="number" class="service-qty" placeholder="Qty" min="1" value="1" disabled>
+    				</div>
+				</div>
 
-            <div class="service-item">
-                            <label><input type="checkbox">Aerobic Subscription - Quarterly</label>
-                            <input type="number" placeholder="Qty">
-                    </div>
-
-
-                    </div>
-
+                    <!-- STATUSES -->
+                
                     <div class="row">
 
                     <div class="radio-box">
@@ -213,6 +229,8 @@
                     </div>
 
                 </div>
+
+                <!-- CALCULATOR BOX -->
 
                     <div class="charges-box">
 
