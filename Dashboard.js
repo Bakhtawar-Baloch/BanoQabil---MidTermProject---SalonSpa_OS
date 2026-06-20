@@ -43,19 +43,19 @@ function closeBookingModal() {
 // ==============================
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Element selectors
+    // 1. Core element selectors
     const priceInput = document.getElementById('Price');
     const quantityInput = document.getElementById('Quantity');
     const totalDisplay = document.getElementById('Total');
     const bookingForm = document.getElementById('bookingForm');
 
-    // 2. Main calculator function
+    // 2. Pure row-by-row mathematical calculator function
     function calculateTotal() {
         let runningTotal = 0;
         let combinedPriceSum = 0;
         let combinedQuantitySum = 0;
 
-        // Select every service line container
+        // Loop through each service item row independently
         const serviceItems = bookingForm.querySelectorAll('.service-item');
 
         serviceItems.forEach(item => {
@@ -63,49 +63,35 @@ document.addEventListener('DOMContentLoaded', () => {
             const qtyInput = item.querySelector('.service-qty');
 
             if (checkbox && checkbox.checked) {
-                // Ensure field is editable
+                // Unlock the quantity input box when item is selected
                 qtyInput.disabled = false; 
 
                 const itemPrice = parseFloat(checkbox.getAttribute('data-price')) || 0;
-                const itemQuantity = parseInt(qtyInput.value) || 1; // Fallback to 1 item
+                const itemQuantity = parseInt(qtyInput.value) || 1; // Default to 1 if empty or typed over
 
-                // Accurate mathematical accumulation
+                // Calculate cumulative values row-by-row
                 combinedPriceSum += itemPrice;
                 combinedQuantitySum += itemQuantity;
-                runningTotal += (itemPrice * itemQuantity); // ✅ Fix: Multiplies item rate by its specific quantity
+                runningTotal += (itemPrice * itemQuantity); // ✅ Math Core: Price per item multiplied by its quantity
             } else if (qtyInput) {
-                // Safely lock and reset unselected fields
+                // Lock and clean input if item gets unchecked
                 qtyInput.disabled = true;  
                 qtyInput.value = 1;        
             }
         });
 
-        // Update display boxes with cumulative statistics
+        // Update your bottom summary inputs with accurate stats
         if (priceInput) priceInput.value = combinedPriceSum > 0 ? combinedPriceSum : '';
         if (quantityInput) quantityInput.value = combinedQuantitySum > 0 ? combinedQuantitySum : '';
 
-        // Print final accurate calculated sum to screen
+        // Inject the completely accurate financial sum to the UI display
         if (totalDisplay) {
             totalDisplay.textContent = runningTotal.toFixed(2);
         }
     }
 
-    // 3. Fallback override listener for manual entry boxes
-    if (priceInput && quantityInput) {
-        priceInput.addEventListener('input', () => {
-            const manualPrice = parseFloat(priceInput.value) || 0;
-            const manualQty = parseInt(quantityInput.value) || 0;
-            if (totalDisplay) totalDisplay.textContent = (manualPrice * manualQty).toFixed(2);
-        });
-        
-        quantityInput.addEventListener('input', () => {
-            const manualPrice = parseFloat(priceInput.value) || 0;
-            const manualQty = parseInt(quantityInput.value) || 0;
-            if (totalDisplay) totalDisplay.textContent = (manualPrice * manualQty).toFixed(2);
-        });
-    }
-
-    // 4. Live form change captures
+    // 3. Live continuous tracking event listeners
+    // Tracks when a checkbox flips status or when a user types numbers inside quantity inputs
     bookingForm.addEventListener('input', (e) => {
         if (e.target.classList.contains('service-checkbox') || e.target.classList.contains('service-qty')) {
             calculateTotal();
@@ -118,8 +104,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
-
-
 
 
 
@@ -511,7 +495,7 @@ loadPayments();
 
 
 // ====================================================
-// Dashboard Recent Payments Widget
+// Dashboard Recent Payments Widget - Dashboard
 // Shows Last 3 Payments Only
 // ====================================================
 
