@@ -726,6 +726,8 @@ tbody tr:hover {
 
     .mobile-nav-bar{
         padding: 12px 15px !important;
+		border-radius: 24px;
+		margin-bottom: 2rem;
     }
 
     .mobile-logo{
